@@ -1,0 +1,12 @@
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\bin\Debug\Potato.exe.config
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\bin\Debug\Potato.exe
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\bin\Debug\Potato.pdb
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\bin\Debug\NHttp.dll
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\bin\Debug\SharpCifs.dll
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\bin\Debug\NHttp.pdb
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\bin\Debug\SharpCifs.pdb
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\bin\Debug\Microsoft.VisualStudio.OLE.Interop.xml
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\obj\Debug\Potato.csprojResolveAssemblyReference.cache
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\obj\Debug\Potato.exe
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\Potato\Potato\obj\Debug\Potato.pdb

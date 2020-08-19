@@ -1,0 +1,5 @@
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\SharpCifs\SharpCifs\Bin\Debug\SharpCifs.dll
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\SharpCifs\SharpCifs\Bin\Debug\SharpCifs.pdb
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\SharpCifs\SharpCifs\obj\Debug\SharpCifs.csprojResolveAssemblyReference.cache
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\SharpCifs\SharpCifs\obj\Debug\SharpCifs.dll
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\SharpCifs\SharpCifs\obj\Debug\SharpCifs.pdb

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NHttp</id>
+    <version>$version$</version>
+    <title>NHttp</title>
+    <authors>Pieter van Ginkel</authors>
+    <owners>Pieter van Ginkel</owners>
+    <licenseUrl>http://www.gnu.org/licenses/lgpl-3.0.txt</licenseUrl>
+    <projectUrl>http://github.com/pvginkel/NHttp</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple asynchronous .NET HTTP server.</description>
+    <copyright>Pieter van Ginkel © 2012</copyright>
+    <tags>http server</tags>
+    <dependencies>
+      <dependency id="Common.Logging" version="2.0.0" />
+    </dependencies>
+  </metadata>
+</package>

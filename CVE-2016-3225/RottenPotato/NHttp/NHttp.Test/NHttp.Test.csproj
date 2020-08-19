@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{62DDBB7E-4016-4832-9113-06B23557F263}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NHttp.Test</RootNamespace>
+    <AssemblyName>NHttp.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Support\MultiPartWriter.cs" />
+    <Compile Include="Support\StreamExtensions.cs" />
+    <Compile Include="WebBrowserFixtures\FileUpload.cs" />
+    <Compile Include="WebBrowserFixtures\PostRequest.cs" />
+    <Compile Include="WebRequestFixtures\BasicRequest.cs" />
+    <Compile Include="WebBrowserFixtures\BasicRequest.cs" />
+    <Compile Include="Support\DocumentCompletedEventHandler.cs" />
+    <Compile Include="Support\FixtureBase.cs" />
+    <Compile Include="WebRequestFixtures\Cookies.cs" />
+    <Compile Include="WebRequestFixtures\ExceptionInHandler.cs" />
+    <Compile Include="WebRequestFixtures\GracefullShutdown.cs" />
+    <Compile Include="WebRequestFixtures\LoadTest.cs" />
+    <Compile Include="WebRequestFixtures\MultiPartUpload.cs" />
+    <Compile Include="WebRequestFixtures\PostRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\RequestHandler.cs" />
+    <Compile Include="Support\WebBrowserFixtureBase.cs" />
+    <Compile Include="Support\WebBrowserFixtureProxy.cs" />
+    <Compile Include="Support\WebBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Support\WebBrowserForm.Designer.cs">
+      <DependentUpon>WebBrowserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebRequestFixtures\ProtocolErrors.cs" />
+    <Compile Include="WebRequestFixtures\Redirect.cs" />
+    <Compile Include="WebRequestFixtures\StatusCode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NHttp\NHttp.csproj">
+      <Project>{7AD9DA80-AFB9-43EA-BDF2-9B75C47DC2CC}</Project>
+      <Name>NHttp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Support\WebBrowserForm.resx">
+      <DependentUpon>WebBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WebBrowserFixtures\Resources\PostForm.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WebBrowserFixtures\Resources\FileUploadForm.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

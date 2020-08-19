@@ -1,0 +1,5 @@
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\NHttp\NHttp\bin\Debug\NHttp.dll
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\NHttp\NHttp\bin\Debug\NHttp.pdb
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\NHttp\NHttp\obj\Debug\NHttp.csprojResolveAssemblyReference.cache
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\NHttp\NHttp\obj\Debug\NHttp.dll
+J:\derby\Potato_DERBYCON_EDITION_release_justbytes\NHttp\NHttp\obj\Debug\NHttp.pdb

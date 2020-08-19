@@ -1,0 +1,455 @@
+===============
+SMB Transaction
+===============
+To understand the bugs, we need to understand SMB transaction because most bugs in MS17-010 are related to transation.
+I try to make it short.
+
+SMB message structure is well documented in https://msdn.microsoft.com/en-us/library/ee441702.aspx. We might need it 
+for reference.
+
+As documented in https://msdn.microsoft.com/en-us/library/ee441466.aspx, there are 6 SMB commands for transaction subprotocol.
+If a transaction message is larger than SMB message (determined by MaxBufferSize in session parameter), a client 
+MUST use one or more SMB_COM_*TRANSACT*_SECONDARY command (with same TID, UID, PID and MID in SMB header) to send 
+transaction message that did not fit in the initial message.
+
+Each SMB transaction command has subcommand codes. There are 3 group of transaction subcommand as documented in
+https://msdn.microsoft.com/en-us/library/ee441514.aspx (because SMB_COM_*TRANSACT*_SECONDARY comamnds are needed to 
+send a large transaction message).
+
+Now, we go through some implementaion detail on Windows SMB transaction.
+- A TRANSACTION struct and transaction data buffer are always allocated in 1 buffer. In memory, a TRANSACTION struct
+  is always followed by data buffer as shown below.
+    +-----------------+--------------------------------------------+
+    |   TRANSACTION   |   transaction data buffer                  |
+    +-----------------+--------------------------------------------+
+
+- A transaction buffer is paged pool buffer.
+- There is lookaside for transaction buffer which size is 0x5000.
+  - if size <=0x5000, use lookaside
+    - all buffer size will be 0x5000 (even required buffer size is only 0x100)
+  - if size >0x5000, directly allocate from paged pool
+  - if transaction command is SMB_COM_TRANSACTION and SetupCount is 0, directly allocate from paged pool
+
+- TRANSACTION important struct member
+  - InSetup : The pointer to received setup in transaction data buffer.
+  - OutSetup : The pointer to reply setup (is set when all transaction data is received and NOT in transaction data buffer).
+  - InParameters : The pointer to received parameter(s) in transaction data buffer.
+  - OutParameters : The pointer to reply parameter(s) in transaction data buffer.
+  - InData : The pointer to received data in transaction data buffer.
+  - OutData : The pointer to reply data in transaction data buffer.
+  - SetupCount : The number of setup words that are included in the transaction request.
+                 This one determines InSetup buffer size.
+  - MaxSetupCount : Maximum number of setup bytes that the client will accept in the transaction reply.
+                    This one determines OutSetup buffer size.
+  - ParameterCount : The current number of received parameter bytes or the number of parameter to be sent in reply.
+  - TotalParameterCount : The total number of parameter bytes to be sent in this transaction request.
+                          This one determines InParameters buffer size.
+  - MaxParameterCount : The maximum number of parameter bytes that the client will accept in the transaction reply.
+                        This one determines OutParameters buffer size.
+  - DataCount : The current number of received data bytes or the number of data to be sent in reply.
+  - TotalDataCount : The total number of data bytes to be sent in this transaction request.
+                     This one determines InData buffer size.
+  - MaxDataCount : The maximum number of data bytes that the client will accept in the transaction reply.
+                   This one determines OutData buffer size.
+  - Function : The NT transaction subcommand code.
+  - Tid : The transaction Tid.
+  - Pid : The transaction Pid.
+  - Uid : The transaction Uid.
+  - Mid/Fid : The transaction Mid.
+  - AllDataReceived : The boolean which set to 1 when (ParameterCount == TotalParamterCount && DataCount == TotalDataCount).
+
+- There are 3 memory layout for InParameters, OutParameters, InData, OutData buffer in transaction data buffer.
+  - memory layout for SMB_COM_TRANSACTION except TRANS_MAILSLOT_WRITE and "TRANS with zero SetupCount" is shown below.
+    In* and Out* buffers are overlapped.
+      +---------------+------------------------------------------------------+
+      |  TRANSACTION  |             transaction data buffer                  |
+      +---------------+------------------------------------------------------+
+                      | InSetup |   InParameters   |      InData       |     |
+                      +------------------------------------------------------+
+                      |  OutParameters  |            OutData                 |
+                      +------------------------------------------------------+
+  - memory layout for SMB_COM_TRANSACTION2 and exception case from above SMB_COM_TRANSACTION is shown below.
+    All buffers are not overlapped.
+      +---------------+------------------------------------------------------------------------------+
+      |  TRANSACTION  |                       transaction data buffer                                |
+      +---------------+------------------------------------------------------------------------------+
+                      | InSetup |  InParameters  |     InData     |  OutParameters  |    OutData     |
+                      +------------------------------------------------------------------------------+
+  - memory layout for SMB_COM_NT_TRANS is shown below. InParameters and OutParameters are overlapped. 
+    InData and OutData are overlapped.
+      +---------------+-----------------------------------------------------------+
+      |  TRANSACTION  |               transaction data buffer                     |
+      +---------------+-----------------------------------------------------------+
+                      | InSetup |      InParameters    |     InData      |        |
+                      +---------+----------------------+--------------------------+
+                      |         |  OutParameters  |    |        OutData           |
+                      +-----------------------------------------------------------+
+  
+- Transaction is executed when (ParameterCount == TotalParamterCount && DataCount == TotalDataCount).
+- While executing transaction, InParameters and InData pointer might be modified.
+- After transaction is executed, ParameterCount and DataCount (is normally set in called transaction function) are used 
+  for determining the reply size of OutParameters and OutData respectively.
+
+- A SMB_COM_*_SECONDARY request can be used to overwrite a sent transaction parameters and data with displacement.
+  ParameterCount and DataCount is added no matter what (valid) displacement value is.
+  - assume TotalParameterCount is 0 and TotalDataCount is 16
+  - first transaction request has 8 bytes of data
+  - secondary transaction request can have 8 bytes of data with displacement 0
+    - 8 bytes of data in first transaction request is overwritten
+    - next 8 bytes of data never be written
+- For multipiece transaction (transaction that used secondary to complete transaction), a server uses 
+  last SMB_COM_*_SECONDARY command to determine transaction type.
+  - if last command is SMB_COM_TRANSACTION_SECONDARY, a server executes subcommand as TRANS_*.
+  - if last command is SMB_COM_TRANSACTION2_SECONDARY, a server executes subcommand as TRANS2_*.
+  - if last command is SMB_COM_NT_TRANSACT_SECONDARY, a server executes subcommand as NT_TRANSACT_*.
+- A transaction is also used in SMB_COM_WRITE_ANDX command (https://msdn.microsoft.com/en-us/library/ee441954.aspx)
+  when WriteMode is RAW_MODE. The transaction uses FID in parameters instead of MID in SMB header for
+  matching transaction.
+
+That should be enough for SMB transaction. It's time to start bug details.
+Below is bugs I found from MS17-010 diff.
+
+
+
+===========
+Bug1: Uninitialized transaction InParameters and InData buffer
+===========
+A transaction data buffer is not initialized. If we send multipiece transaction request with displacement 0,
+a server will use uninitialized parameter and data for input. An uninitialized input here is normally useless
+because a server processes input parameter and data as untrusted data.
+
+If we found a transaction subcommand that use part of input as output, we could use this bug for 
+leaking uninitialized data.
+
+A transaction subcommand that perfect for exploiting this bug is NT_TRANSACT_RENAME. The NT_TRANSACT_RENAME 
+is documented as "Not implemented". But there is a code in SrvSmbNtRename() function.
+
+Here is psuedocode for SrvSmbNtRename()
+
+SrvSmbNtRename()
+{
+    // ParameterCount must be >= 4
+    // first 2 bytes of InParameters is fid
+    // verify fid
+    // if verification failed, return error without data
+    // if verification success, return success without modifying OutParameters, ParameterCount, OutData, DataCount
+}
+
+But, as mentioned above, transaction InData and OutData are overlapped. Without modifying any 
+transaction *Parameter* and *Data*, a server returns InData (like echo).
+
+An only REQUIREMENT for using NT_TRANSACT_RENAME command is valid fid. So we need to get fid by opening 
+any named pipe or share first.
+
+This bug is not helpful for exploitation because leaked info is from freed buffer. It is difficult to get 
+exact information because a transaction size is always >=0x5000.
+
+Here is some useful of this bug:
+- detect a target architecture (32 or 64 bit) from leak pointer
+- might contain important data
+
+The PoC filename for this bug is infoleak_uninit.py
+
+Note:
+- this bug is not used in NSA leak tools.
+- because the fix only set zero to InParameters and InData buffer, it is still possible to do information disclosure
+  from OutParameters and OutData. May17 security patches fix information disclosure from OutParameters and OutData in
+  various function (no zero the whole OutParameters and OutData buffer).
+- May17 security patches modify SrvSmbNtRename() to return an error.
+
+
+
+===============
+Bug2: TRANS_PEEK_NMPIPE transaction subcommand expects MaxParameterCount to be 16
+===============
+SrvPeekNamedPipe() is used for handling TRANS_PEEK_NMPIPE subcommand (https://msdn.microsoft.com/en-us/library/ee441845.aspx).
+It peeks the named pipe data to OutParameters buffer. The named pipe data is placed at OutParameters+16.
+If MaxParameterCount is 16, OutData will point to correct named pipe data. By setting MaxParameterCount larger than 16, 
+we can leak uninitialized OutData buffer. But we can do better by using it with Bug3.
+
+The fix of this bug is used by scanners to determine if MS17-010 has been patched or not.
+
+SrvAllocationTransaction() is used for allocating a transaction struct and data buffer. If a transaction data buffer size is 
+greater than 0x10400, the SrvAllocationTransaction() will set a pointer to transaction to NULL. Then, the server replies 
+an error code 0xC0000205 (STATUS_INSUFF_SERVER_RESOURCES).
+
+When sending a large MaxParameterCount and MaxDataCount (sum of them is >0x10400), we will got an error code 0xC0000205.
+Because MS17-010 patch changes MaxParameterCount to 16 if transaction subcommand is TRANS_PEEK_NMPIPE before calling 
+SrvAllocationTransaction(), SrvPeekNamedPipe() will be called even sum of MaxParameterCount and MaxDataCount is >0x10400.
+The response from SrvPeekNamedPipe() is depended on our InSetup.
+
+
+
+===============
+Bug3: Transaction reply data size might be larger than allocated buffer size
+===============
+SrvCompleteExecuteTransaction() function is used for sending transaction reply to a client. But it has no check if
+ParameterCount/DataCount is larger than MaxParameterCount/MaxDataCount. SrvCompleteExecuteTransaction() might
+copy reply data from outside of buffer (OOB read) to client. This can lead to information disclosure.
+
+To exploit the bug, we send a TRANS_PEEK_NMPIPE transaction subcommannd (Bug2) with MaxParameterCount to very large value and 
+MaxDataCount to 1. If a transaction reply data size (DataCount) is more than MaxDataCount, SrvCompleteExecuteTransaction() 
+will send OutData and data next to OutData buffer to a client. The transaction buffer should look like below.
+    +---------------+-----------------------------------------------------+
+    |  TRANSACTION  |            transaction data buffer                  |
+    +---------------+-----------------------------------------------------+
+                    | InSetup |  InParameters  |       InData       |     |
+                    +-----------------------------------------------------+------------+
+                    |           OutParameters                     |OutData|  OOB read  |
+                    +-----------------------------------------------------+------------+
+
+The NSA eternalromance uses this bug and Bug2 to do a info disclosure. The PoC file is eternalromance_leak.py.
+
+The bug is fixed in Windows 8 (since release) and later. MS17-010 add the same code as Windows 8 to fix this bug on Windows<8.
+
+NSA eternalromance relies on this bug to leak TRANSACTION struct. So NSA eternalromance cannot exploit Windows 8 and later.
+
+
+
+===============
+Bug4: Transaction ParameterCount/DataCount might be greater than TotalParameterCount/TotalDataCount
+===============
+When sending SMB_COM_*_SECONDARY command, a server checks a displacement value and a size of data to not write outside of
+allocated buffer. But there is no check if total received ParameterCount/DataCount is greater than
+TotalParameterCount/TotalDataCount.
+
+For example:
+- a transaction with TotalDataCount=0x20
+- first request, send 0x18 bytes of data (DataCount=0x18)
+- next request, send 0x10 bytes of data (DataCount=0x28)
+
+Normally, this bug is not useful for exploitation. But it can be used with Bug5 (below).
+
+
+
+===============
+Bug5: Transaction secondary request is accepted and processed after transaction execution is started
+===============
+If we send a transaction secondary request to a transaction that AllDataReceived member has already been set, a server will 
+send back an error without processing the request.
+
+For multipiece transaction, AllDataReceived is set (in SrvSmbTransactionSecondary()/SrvSmbNtTransactionSecondary()) before 
+executing transaction. But AllDataReceived is NOT set (in SrvSmbTransaction()/SrvSmbNtTransaction()) when transaction is 
+completed in 1 SMB message. This allow us to send a transaction secondary request to modify InParamter/InData buffer and 
+ParameterCount/DataCount while server is executing a transaction or sending a reply.
+
+
+First case to exploit this bug is sending a transaction secondary request while a server is sending a reply. The result is
+a server replies data outside of OutData buffer (similar to Bug3). But this method seems to be race condition that diffcult to win.
+NSA eternalchampion and eternalsynergy use very nice trick to always win this race condition.
+
+When doing SMB login, we send SMB_COM_SESSION_SETUP_ANDX (https://msdn.microsoft.com/en-us/library/ee442101.aspx) request to
+a server. The request contains MaxBufferSize field (https://msdn.microsoft.com/en-us/library/ee441849.aspx) which is 
+the maximum size, in bytes, of the largest SMB message that the client can receive.
+
+If a transaction reply size is larger than MaxBufferSize, a server will send multiple transaction replies to a client. To resume
+sending next transaction reply, a server add work queue to call RestartTransactionResponse() function. Moreover, 
+RestartTransactionResponse() has no check about MaxParameterCount and MaxDataCount.
+
+With above information, the NSA exploit sends SMB_COM_SESSION_SETUP_ANDX (login) with specific MaxBufferSize. Then, the exploit
+creates one complete NT_TRANS_RENAME request which response size is larger than MaxBufferSize and one NT_TRANS_RENAME 
+secondary request, with a number of data is a number of byte to leak. Finally, the exploit sends these 2 requests in 1 TCP packet.
+
+After a server sends first part of transaction reply, a server queue a call to RestartTransactionResponse() after NT_TRANS_RENAME
+secondary request. The transaction DataCount is increased when processing the NT_TRANS_RENAME secondary request (this works 
+because of Bug4). Then, the server sends second part of transaction reply with data outside of OutData buffer.
+
+We can see PoC for leaking information with this bug in eternalchampion_leak.py and eternalsynergy_leak.py. I do not know why
+both exploits use different parameters.
+
+
+Another case to exploit this bug is sending a transaction secondary request while a server is executing a transaction. This case
+is very difficult to find a exploit path and requires to win a race (champion). The NSA eternalchampion uses
+TRANS2_QUERY_PATH_INFORMATION subcommand (https://msdn.microsoft.com/en-us/library/ee441634.aspx) with 
+SMB_INFO_IS_NAME_VALID query information level (https://msdn.microsoft.com/en-us/library/ff470079.aspx).
+
+In SrvSmbQueryPathInformation() function with SMB_INFO_IS_NAME_VALID information level, the transaction InData pointer is 
+modified to point to UNICODE_STRING struct allocated on stack. After modified InData pointer, if a server processes a transaction
+secondary request before executing transaction is finished, the stack data (saved eip/rip) will be overwritten with certain offset 
+by data and dataDisplacement in transaction secondary. Because offset in stack is always fixed, NSA eternalchampion has no
+chance to crash a target.
+
+The PoC file for this bug is eternalchampion_poc.py
+
+Note: I found the same fix for this bug in SrvSmbWriteAndX() too
+
+
+
+===============
+Bug6: Transaction secondary can be used with any transaction type
+===============
+Normally SMB_COM_TRANSACTION command must be followed by SMB_COM_TRANSACTION_SECONDARY command, SMB_COM_TRANSACTION2 command must be 
+followed by SMB_COM_TRANSACTION2_SECONDARY command and SMB_COM_NT_TRANS command must be followed by SMB_COM_NT_TRANS_SECONDARY
+command if transaction data in first SMB message is not complete. But a server has no check. So we can send any transaction 
+secondary command (which matches TID, UID, PID and MID) to complete a transaction.
+
+Do not forget that a server uses last SMB_COM_*_SECONDARY command to determine transaction type. So we can turn any transaction type
+to be SMB_COM_TRANSACTION or SMB_COM_TRANSACTION2. We cannot turn non SMB_COM_NT_TRANS to SMB_COM_NT_TRANS because SMB_COM_NT_TRANS
+uses Function to determine transaction subcommand.
+
+This bug is used in NSA eternalblue exploit for sending large transaction data (>=0x10000 bytes) for TRANS2_OPEN2. Because only 
+SMB_COM_NT_TRANS request use 4 bytes for TotalDataCount field (other use 2 bytes), the exploit have to start a transaction with
+SMB_COM_NT_TRANS command then following the SMB_COM_TRANSACTION2_SECONDARY command.
+You can see an example usage in eternalblue_poc.py.
+
+As I mentioned in introduction section, a transaction is also used in SMB_COM_WRITE_ANDX command when WriteMode is RAW_MODE.
+This is very interesting case because SrvSmbWriteAndX() writes data to transacation with below code.
+
+    memmove(transaction->Indata, request->data, request->dataLength);
+    transaction->InData += request->dataLength; // shift InData pointer
+    transaction->DataCount += request->dataLength;
+
+Notice that SrvSmbWriteAndX() shifts InData pointer when writing data, while transaction secondary uses dataDisplacement to set
+where to write a data in InData buffer (without moving InData).
+
+Assume we start a transaction with TotalDataSize=0x2000 with MID value same as FID of open named pipe. The memory layout look
+like below (I omit OutParameters and OutData because they are not related).
+
+    +---------------+-----------------------------------------------------+
+    |  TRANSACTION  |            transaction data buffer                  |
+    +---------------+-----------------------------------------------------+
+                    | InSetup |   InParameters   |        InData          |
+                    +-----------------------------------------------------+
+
+Then, we send a SMB_COM_WRITE_ANDX command with WriteMode=RAW_MODE and 0x100 bytes of data.
+
+    +---------------+-----------------------------------------------------+
+    |  TRANSACTION  |            transaction data buffer                  |
+    +---------------+-----------------------------------------------------+
+                    | InSetup |   InParameters   |    |       InData           |
+                    +-----------------------------------------------------+
+
+Then, writing outside transaction data buffer is possible if we send a transaction secondary command with dataDisplacement=0x1f??.
+
+This OOB write is very good for exploitation however SMB_COM_WRITE_ANDX command with RAW_MODE write requires a valid named pipe fid.
+Since Windows Vista, the default Windows configuration without additional service does not allow an anonymous logon (NULL session)
+to access any named pipe.
+
+You can see PoC in eternalromance_poc.py and eternalsynergy_poc.py (with large paged groom method to show another heap spraying method).
+
+Note: NSA eternalromance and eternalsynergy use this bug for OOB write. Eternalromance uses Bug3 for leaking transaction struct
+(which is limited to Windows<8) but eternalsynergy uses Bug5 for leaking transaction struct and some trick to find 
+a NonPagedPoolExecute page (I do not check how exploit exactly work) in Windows 8 and Windows 2012.
+
+
+===============
+Bug7: Wrong type assigment in SrvOs2FeaListSizeToNt()
+===============
+The FEA (Full Extended Attribute), https://msdn.microsoft.com/en-us/library/ee915515.aspx, is used in SMB_COM_TRANSACTION2 subcommands.
+Normally we need to send FEA_LIST (https://msdn.microsoft.com/en-us/library/ff359296.aspx) in SMB_COM_TRANSACTION2 subcommands request.
+When processing SMB_COM_TRANSACTION2 subcommands request wth FEA_LIST, Windows need to convert FEA_LIST to a list of 
+FILE_FULL_EA_INFORMATION (https://msdn.microsoft.com/en-us/library/cc232069.aspx).
+
+There is a bug while converting FEA_LIST to FILE_FULL_EA_INFORMATION if FEA_LIST.SizeOfListInBytes is >=0x10000. The SrvOs2FeaListToNt()
+is used for converting which has following psuedocode.
+
+SrvOs2FeaListToNt()
+{
+    outputLen = SrvOs2FeaListSizeToNt(feaList);
+    output = SrvAllocateNonPagedPool(outputLen);
+    // start copy all FEA data to output in a list of FILE_FULL_EA_INFORMATION format
+}
+
+SrvOs2FeaListSizeToNt(feaList)
+{
+    outputLen = 0;
+    foreach (fea in feaList) {
+        if (IsFeaDataOutOfBound(fea, feaList)) {
+            // shrink feaList.SizeOfListInBytes to only valid fea so copy step does not need to check again.
+            // feaList.SizeOfListInBytes is DWORD but it is cast to WORD so HIDWORD is not modified.
+            (WORD) feaList.SizeOfListInBytes = Pos(fea) - Pos(feaList);
+            return outputLen;
+        }
+        outputLen += GetNtLengthForFea(fea);
+    }
+    return outputLen;
+}
+
+From above pseudocode, if we send feaList.SizeOfListInBytes=0x10000 while valid FEA entries in list is less than
+0x10000 bytes (assume 0x4000), the feaList.SizeOfListInBytes will be modified to 0x14000 because HIDWORD is not modified and
+outputLen is only 0x4000. Then the output buffer will be overflowed while copying FEA data to output buffer.
+
+As mentioned above, we need to send a transaction data that larger than 0x10000 bytes. But the FEA_LIST data is used
+only in SMB_COM_TRANSACTION2 which TotalDataCount is USHORT (max is 0xffff). So we need to Bug6 to send a FEA_LIST 
+data that larger than 0x10000.
+
+The exploit path that required minimum condition is TRANS2_OPEN2 subcommand. The SrvSmbOpen2() calls SrvOs2FeaListToNt()
+for converting FEA_LIST before any permission checking. So a client just need to access any share (IPC$ is best choice)
+and able to send SMB_COM_NT_TRANS and SMB_COM_TRANSACTION2_SECONDARY commands.
+
+Above exploitation requirements are good for Windows<8 because Windows<8 always allow anonymous (NULL session) to 
+access IPC$ and send transaction commands. However, Windows>=8 does not allow anonymous to access IPC$ by default 
+(IPC$ might be acessible but most of transaction commands cannot be used).
+
+You can see PoC in eternalblue_poc.py
+
+
+
+===============
+Bug8: Wrong type assigment in SrvOs2GeaListSizeToNt()
+===============
+The bug is same as Bug7 in different function but all exploit path requires valid fid.
+
+
+
+===============
+Bug9: SESSION_SETUP_AND_X request format confusion
+===============
+This bug is not fixed in MS17-010. I put it here because NSA leak tools use it for exploitation. The bug itself 
+can only fool a server to allocate a large nonpaged pool (<0x20000) for storing small client information.
+
+There are 2 format of SMB_COM_SESSION_SETUP_ANDX request for "NT LM 0.12" dialect. The first format is documented
+in https://msdn.microsoft.com/en-us/library/ee441849.aspx. It is used for LM and NTLM authentication. Another format
+is documented in https://msdn.microsoft.com/en-us/library/cc246328.aspx. It is used for NTLMv2 (NTLM SSP) authentication.
+We noted that these 2 foramts have different WordCount (first one is 13 and later is 12).
+
+The SMB_COM_SESSION_SETUP_ANDX request is handled by BlockingSessionSetupAndX() function. Below is psuedocode for hanlding
+both request format (only related part).
+
+BlockingSessionSetupAndX()
+{
+    // ...
+    
+    // check word count
+    if (! (request->WordCount == 13 || (request->WordCount == 12 && (request->Capablilities & CAP_EXTENDED_SECURITY))) ) {
+        // error and return
+    }
+    
+    // ...
+    
+    if ((request->Capablilities & CAP_EXTENDED_SECURITY) && (smbHeader->Flags2 & FLAGS2_EXTENDED_SECURITY)) {
+        // this request is Extend Security request
+        GetExtendSecurityParameters();  // extract parameters and data to variables
+        SrvValidateSecurityBuffer();  // do authentication
+    }
+    else {
+        // this request is NT Security request
+        GetNtSecurityParameters();  // extract parameters and data to variables
+        SrvValidateUser();  // do authentication
+    }
+    
+    // ...
+}
+
+From psuedocode above, if we send SMB_COM_SESSION_SETUP_ANDX request as Extended Security (WordCount 12) with 
+CAP_EXTENDED_SECURITY but no FLAGS2_EXTENDED_SECURITY, the request will be processed as NT Security request (WordCount 13).
+We can also send the request as NT Security request (WordCount 13) with CAP_EXTENDED_SECURITY and FLAGS2_EXTENDED_SECURITY.
+But later case is no use because there is an extra check of ByteCount value in GetExtendSecurityParameters() function.
+
+Normally a server validates WordCount and ByteCount field in SrvValidateSmb() function before passing a request to 
+request handler. The WordCount*2 and ByteCount must not be larger than received data size. With the confusing bug, a server
+read ByteCount from wrong offset while extracting parameters and data to variables.
+
+The bug does not cause any memory corruption or information disclosure because ByteCount value is only used for calculating
+buffer size for storing NativeOS and NativeLanMan unicode string (UTF16). The NativeOS and NativeLanMan size is caculated from 
+"ByteCount - other_data_size". The buffer for NativeOS and NativeLanMan unicode string is allocated on nonpaged pool.
+
+NSA eternalchampion uses this bug to set UNICODE_STRING.MaximumLength to 0x15ff and place staging shellcode in buffer because 
+nonpaged pool is executable on Windows<8.
+Note: On x86, 'ff15????????' is 'call [????????]' instruction. On x64, 'ff1500000000' is 'call [rip+0]'. 
+
+NSA eternalblue uses this bug to creating hole because we can control when to allocate and free the buffer.
+
+The PoC filename for this bug is npp_control.py and the example usages of this bug is eternalblue_exploit.py and eternalchampion_poc2.py
+
+Note: This mothod cannot use for user authentication if NTLM authentication is disabled
