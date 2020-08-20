@@ -1,0 +1,7 @@
+C:\Users\Nick.SBS\ownCloud\Nick\google-security-research\poc\src\Poc_DCERPCNTLMReflection_EoP\bin\Debug\Poc_DCERPCNTLMReflection_EoP.exe
+C:\Users\Nick.SBS\ownCloud\Nick\google-security-research\poc\src\Poc_DCERPCNTLMReflection_EoP\bin\Debug\Poc_DCERPCNTLMReflection_EoP.pdb
+C:\Users\Nick.SBS\ownCloud\Nick\google-security-research\poc\src\Poc_DCERPCNTLMReflection_EoP\obj\Debug\Poc_DCERPCNTLMReflection_EoP.csprojResolveAssemblyReference.cache
+C:\Users\Nick.SBS\ownCloud\Nick\google-security-research\poc\src\Poc_DCERPCNTLMReflection_EoP\obj\Debug\Poc_DCERPCNTLMReflection_EoP.Properties.Resources.resources
+C:\Users\Nick.SBS\ownCloud\Nick\google-security-research\poc\src\Poc_DCERPCNTLMReflection_EoP\obj\Debug\Poc_DCERPCNTLMReflection_EoP.csproj.GenerateResource.Cache
+C:\Users\Nick.SBS\ownCloud\Nick\google-security-research\poc\src\Poc_DCERPCNTLMReflection_EoP\obj\Debug\Poc_DCERPCNTLMReflection_EoP.exe
+C:\Users\Nick.SBS\ownCloud\Nick\google-security-research\poc\src\Poc_DCERPCNTLMReflection_EoP\obj\Debug\Poc_DCERPCNTLMReflection_EoP.pdb
