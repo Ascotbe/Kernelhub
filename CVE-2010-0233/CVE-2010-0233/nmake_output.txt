@@ -1,0 +1,44 @@
+OACR monitor running already
+
+C:\WinDDK\7600.16385.1>cd c:\vdm
+
+C:\vdm>FixEnviron.bat
+
+C:\vdm>set Include=C:\WinDDK\7600.16385.1\inc\api;C:\WinDDK\7600.16385.1\inc\crt
+;C:\WinDDK\7600.16385.1\inc\ddk;c:\vdm\userh
+
+C:\vdm>nmake
+
+Microsoft (R) Program Maintenance Utility Version 9.00.30729.207
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+        cl /Zi /Zp /Od /TC /nologo /c vdmallowed.c
+vdmallowed.c
+vdmallowed.c(537) : warning C4028: formal parameter 2 different from declaration
+
+        cl /Fevdmallowed.exe vdmallowed.obj
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 15.00.30729.207 for 80x86
+
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+Microsoft (R) Incremental Linker Version 9.00.30729.207
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:vdmallowed.exe
+vdmallowed.obj
+        cl /Zi /Zp /Od /TC /nologo /c vdmexploit.c
+vdmexploit.c
+        cl /Fevdmexploit.dll /LD vdmexploit.obj
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 15.00.30729.207 for 80x86
+
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+Microsoft (R) Incremental Linker Version 9.00.30729.207
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:vdmexploit.dll
+/dll
+/implib:vdmexploit.lib
+vdmexploit.obj
+
+C:\vdm>
