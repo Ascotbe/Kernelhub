@@ -25,8 +25,8 @@
 
 ### 编号列表
 
-|        Security Bulletin         |                         Description                          |            Operating System            |
-| :------------------------------: | :----------------------------------------------------------: | :------------------------------------: |
+| SecurityBulletin                 |                         Description                          |            OperatingSystem             |
+| :------------------------------- | :----------------------------------------------------------: | :------------------------------------: |
 | [CVE-2020-0796](./CVE-2020-0796) |                 SMBv3 Remote Code Execution                  |           Windows 1903/1909            |
 | [CVE-2020-0787](./CVE-2020-0787) |       Windows Background Intelligent Transfer Service        |   Windows 7/8/10/2008/2012/2016/2019   |
 | [CVE-2019-1458](./CVE-2019-1458) |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2008/2012/2016      |
