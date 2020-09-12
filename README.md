@@ -11,7 +11,7 @@
 
 
 
-**请使用者遵守 [中华人民共和国网络安全法](http://www.cac.gov.cn/2016-11/07/c_1119867116.htm)，勿将项目用于非授权的测试，项目开发者不负任何连带法律责任。**
+**请使用者遵守 [中华人民共和国网络安全法](http://www.cac.gov.cn/2016-11/07/c_1119867116.htm)，勿将项目用于非授权的测试，否则造成的严重后果与本项目无关。**
 
 
 
@@ -25,67 +25,75 @@
 
 ### 编号列表
 
-| Security Bulletin                | Description | Operating System |
-| -------------------------------- | ----------- | ---------------- |
-| [CVE-2020-0796](./CVE-2020-0796) |             |                  |
-| [CVE-2020-0787](./CVE-2020-0787) |             |                  |
-| [CVE-2019-1458](./CVE-2019-1458) |             |                  |
-| [CVE-2019-1388](./CVE-2019-1388) |             |                  |
-| [CVE-2019-0859](./CVE-2019-0859) |             |                  |
-| [CVE-2019-0803](./CVE-2019-0803) |             |                  |
-| [CVE-2018-8639](./CVE-2018-8639) |             |                  |
-| [CVE-2018-8453](./CVE-2018-8453) |             |                  |
-| [CVE-2018-8440](./CVE-2018-8440) |             |                  |
-| [CVE-2018-8120](./CVE-2018-8120) |             |                  |
-| [CVE-2018-1038](./CVE-2018-1038) |             |                  |
-| [CVE-2018-0743](./CVE-2018-0743) |             |                  |
-| [CVE-2017-8464](./CVE-2017-8464) |             |                  |
-| [CVE-2017-0213](./CVE-2017-0213) |             |                  |
-| [CVE-2017-0143](./CVE-2017-0143) |             |                  |
-| [CVE-2017-0101](./CVE-2017-0101) |             |                  |
-| [CVE-2016-7255](./CVE-2016-7255) |             |                  |
-| [CVE-2016-3371](./CVE-2016-3371) |             |                  |
-| [CVE-2016-3309](./CVE-2016-3309) |             |                  |
-| [CVE-2016-3225](./CVE-2016-3225) |             |                  |
-| [CVE-2016-0099](./CVE-2016-0099) |             |                  |
-| [CVE-2016-0095](./CVE-2016-0095) |             |                  |
-| [CVE-2016-0051](./CVE-2016-0051) |             |                  |
-| [CVE-2015-2546](./CVE-2015-2546) |             |                  |
-| [CVE-2015-2370](./CVE-2015-2370) |             |                  |
-| [CVE-2015-1725](./CVE-2015-1725) |             |                  |
-| [CVE-2015-1701](./CVE-2015-1701) |             |                  |
-| [CVE-2015-0062](./CVE-2015-0062) |             |                  |
-| [CVE-2015-0057](./CVE-2015-0057) |             |                  |
-| [CVE-2015-0003](./CVE-2015-0003) |             |                  |
-| [CVE-2015-0002](./CVE-2015-0002) |             |                  |
-| [CVE-2014-6321](./CVE-2014-6321) |             |                  |
-| [CVE-2014-4113](./CVE-2014-4113) |             |                  |
-| [CVE-2014-4076](./CVE-2014-4076) |             |                  |
-| [CVE-2014-1767](./CVE-2014-1767) |             |                  |
-| [CVE-2013-5065](./CVE-2013-5065) |             |                  |
-| [CVE-2013-1345](./CVE-2013-1345) |             |                  |
-| [CVE-2013-1332](./CVE-2013-1332) |             |                  |
-| [CVE-2013-0008](./CVE-2013-0008) |             |                  |
-| [CVE-2012-0217](./CVE-2012-0217) |             |                  |
-| [CVE-2011-2005](./CVE-2011-2005) |             |                  |
-| [CVE-2011-1974](./CVE-2011-1974) |             |                  |
-| [CVE-2011-1249](./CVE-2011-1249) |             |                  |
-| [CVE-2011-0045](./CVE-2011-0045) |             |                  |
-| [CVE-2010-4398](./CVE-2010-4398) |             |                  |
-| [CVE-2010-3338](./CVE-2010-3338) |             |                  |
-| [CVE-2010-2554](./CVE-2010-2554) |             |                  |
-| [CVE-2010-1897](./CVE-2010-1897) |             |                  |
-| [CVE-2010-0270](./CVE-2010-0270) |             |                  |
-| [CVE-2010-0233](./CVE-2010-0233) |             |                  |
-| [CVE-2009-2532](./CVE-2009-2532) |             |                  |
-| [CVE-2009-0079](./CVE-2009-0079) |             |                  |
-| [CVE-2008-4250](./CVE-2008-4250) |             |                  |
-| [CVE-2008-4037](./CVE-2008-4037) |             |                  |
-| [CVE-2008-3464](./CVE-2008-3464) |             |                  |
-| [CVE-2008-1084](./CVE-2008-1084) |             |                  |
-| [CVE-2006-3439](./CVE-2006-3439) |             |                  |
-| [CVE-2005-1983](./CVE-2005-1983) |             |                  |
-| [CVE-2003-0352](./CVE-2003-0352) |             |                  |
+| Security Bulletin                                            | Description                                                  | Operating System |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------- |
+| [CVE-2020-0796](./CVE-2020-0796)                             | A remote code execution vulnerability exists in the way that the Microsoft Server Message Block 3.1.1 (SMBv3) protocol handles certain requests, aka 'Windows SMBv3 Client/Server Remote Code Execution Vulnerability |                  |
+| [CVE-2020-0787](./CVE-2020-0787)                             | Windows Background Intelligent Transfer Service Elevation of Privilege Vulnerability |                  |
+| [CVE-2019-1458](./CVE-2019-1458)                             | An elevation of privilege vulnerability exists in Windows when the Win32k component fails to properly handle objects in memory |                  |
+| [CVE-2019-1388](./CVE-2019-1388)                             |                                                              |                  |
+| [CVE-2019-0859](./CVE-2019-0859)                             |                                                              |                  |
+| [CVE-2019-0803](./CVE-2019-0803)                             | An elevation of privilege vulnerability exists in Windows when the Win32k component fails to properly handle objects in memory |                  |
+| [CVE-2018-8639](./CVE-2018-8639)                             | An elevation of privilege vulnerability exists in Windows when the Win32k component fails to properly handle objects in memory |                  |
+| [CVE-2018-8453](./CVE-2018-8453)                             | An elevation of privilege vulnerability in Windows Win32k component |                  |
+| [CVE-2018-8440](./CVE-2018-8440)                             | Windows ALPC Elevation of Privilege Vulnerability            |                  |
+| [CVE-2018-8120](./CVE-2018-8120)                             | Win32k Elevation of Privilege Vulnerability                  |                  |
+| [CVE-2018-1038](./CVE-2018-1038)                             | Windows Kernel Elevation of Privilege Vulnerability          |                  |
+| [CVE-2018-0743](./CVE-2018-0743)                             | Windows Subsystem for Linux Elevation of Privilege Vulnerability |                  |
+| CVE-2018-0833                                                | SMBv3 Null Pointer Dereference Denial of Service             |                  |
+| [CVE-2017-8464](./CVE-2017-8464)                             | LNK Remote Code Execution Vulnerability                      |                  |
+| [CVE-2017-0213](./CVE-2017-0213)                             | Windows COM Elevation of Privilege Vulnerability             |                  |
+| [CVE-2017-0143](./CVE-2017-0143)                             | Windows Kernel Mode Drivers                                  |                  |
+| [CVE-2017-0101](./CVE-2017-0101)                             | GDI Palette Objects Local Privilege Escalation               |                  |
+| [CVE-2016-7255](./CVE-2016-7255)                             | Windows Kernel Mode Drivers                                  |                  |
+| [CVE-2016-3371](./CVE-2016-3371)                             | kernel api                                                   |                  |
+| [CVE-2016-3309](./CVE-2016-3309)                             | Kernel Driver                                                |                  |
+| [CVE-2016-3225](./CVE-2016-3225)                             | Hot Potato                                                   |                  |
+| [CVE-2016-0099](./CVE-2016-0099)                             | Secondary Logon Handle                                       |                  |
+| [CVE-2016-0095](./CVE-2016-0095)                             | Kernel Driver                                                |                  |
+| [CVE-2016-0051](./CVE-2016-0051)                             | WebDAV                                                       |                  |
+| MS16-014                                                     | remote code execution                                        |                  |
+| [CVE-2015-2546](./CVE-2015-2546)                             | remote code execution                                        |                  |
+| [MS15-077](https://github.com/Ascotbe/windows-kernel-exploits/blob/master/MS15-077)/CVE-2015-2387 | ATM                                                          |                  |
+| [CVE-2015-2370](./CVE-2015-2370)                             | RPC                                                          |                  |
+| [CVE-2015-1725](./CVE-2015-1725)                             | Kernel Driver                                                |                  |
+| [CVE-2015-1701](./CVE-2015-1701)                             | Windows Kernel Mode Drivers                                  |                  |
+| [CVE-2015-0062](./CVE-2015-0062)                             | Kernel Driver                                                |                  |
+| [CVE-2015-0057](./CVE-2015-0057)                             | Kernel Driver                                                |                  |
+| [CVE-2015-0003](./CVE-2015-0003)                             | Kernel Driver                                                |                  |
+| [CVE-2015-0002](./CVE-2015-0002)                             | Kernel Driver                                                |                  |
+| [MS14-068](https://github.com/Ascotbe/windows-kernel-exploits/blob/master/MS14-068)/CVE-2014-6324 | Domain Privilege Escalation                                  |                  |
+| [CVE-2014-6321](./CVE-2014-6321)                             | Remote Code Execution                                        |                  |
+| [CVE-2014-4113](./CVE-2014-4113)                             | Kernel Driver                                                |                  |
+| [CVE-2014-4076](./CVE-2014-4076)                             | Kernel Driver                                                |                  |
+| [CVE-2014-1767](./CVE-2014-1767)                             | AFD Driver                                                   |                  |
+| [CVE-2013-5065](./CVE-2013-5065)                             | NDProxy                                                      |                  |
+| [CVE-2013-1345](./CVE-2013-1345)                             | Kernel Driver                                                |                  |
+| [CVE-2013-1332](./CVE-2013-1332)                             | dxgkrnl.sys                                                  |                  |
+| [CVE-2013-0008](./CVE-2013-0008)                             | Kernel Mode Driver                                           |                  |
+| [CVE-2012-0217](./CVE-2012-0217)                             | Service Bus                                                  |                  |
+| [MS12-020](https://github.com/Ascotbe/windows-kernel-exploits/blob/master/MS12-020)/CVE-2012-0002 | Remote Code Execution                                        |                  |
+| [CVE-2011-2005](./CVE-2011-2005)                             | AFD.sys                                                      |                  |
+| [CVE-2011-1974](./CVE-2011-1974)                             | NDISTAPI                                                     |                  |
+| [CVE-2011-1249](./CVE-2011-1249)                             | AFD.sys                                                      |                  |
+| [CVE-2011-0045](./CVE-2011-0045)                             | Kernel Driver                                                |                  |
+| [CVE-2010-4398](./CVE-2010-4398)                             | bypass the User Account Control (UAC) feature, via a crafted REG_BINARY value for a SystemDefaultEUDCFont registry key, aka "Driver Improper Interaction with Windows Kernel Vulnerability." |                  |
+| [CVE-2010-3338](./CVE-2010-3338)                             | Task Scheduler                                               |                  |
+| [CVE-2010-2554](./CVE-2010-2554)                             | ACL-Churraskito                                              |                  |
+| [CVE-2010-1897](./CVE-2010-1897)                             | Kernel Driver                                                |                  |
+| [CVE-2010-0270](./CVE-2010-0270)                             | Remote Code Execution                                        |                  |
+| [CVE-2010-0233](./CVE-2010-0233)                             | KiTrap0D                                                     |                  |
+| [MS10-012](https://github.com/Ascotbe/windows-kernel-exploits/blob/master/MS10-012)/CVE-2010-0020 | Remote Code Execution                                        |                  |
+| [CVE-2009-2532](./CVE-2009-2532)                             | Remote Code Execution                                        |                  |
+| [CVE-2009-0079](./CVE-2009-0079)                             | Chimichurri                                                  |                  |
+| [CVE-2008-4250](./CVE-2008-4250)                             | Remote Code Execution                                        |                  |
+| [CVE-2008-4037](./CVE-2008-4037)                             | Remote Code Execution                                        |                  |
+| [CVE-2008-3464](./CVE-2008-3464)                             | AFD.sys                                                      |                  |
+| [CVE-2008-1084](./CVE-2008-1084)                             | Win32.sys                                                    |                  |
+| [CVE-2006-3439](./CVE-2006-3439)                             | Remote Code Execution                                        |                  |
+| [CVE-2005-1983](./CVE-2005-1983)                             | PnP Service                                                  |                  |
+| [CVE-2003-0352](./CVE-2003-0352)                             | Buffer Overrun In RPC Interface                              |                  |
+
+
 
 
 
@@ -128,5 +136,16 @@
   VS2019（内置V142、V141、V120、V110、V100、V141_xp、V120_xp、V110_xp、MFC）
   ```
 
-  
+
+
+
+
+
+
+
+### 参考项目
+
+- [windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
+- [WindowsExploits](https://github.com/abatchy17/WindowsExploits)
+- [Exploits](https://github.com/WindowsExploits/Exploits)
 
