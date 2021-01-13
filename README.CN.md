@@ -9,17 +9,15 @@
 
 
 
-> Preface
+> 前言
 
-This project is a Windows privilege collection project. Except for failing the test EXP, there are detailed instructions and demonstration GIF pictures. If the code in the project has your code, please submit Issues if you are the source of the mark.
+该项目是一个Windows提权搜集项目，除未通过测试EXP都有详细说明以及演示GIF图，如果项目中的代码有您的代码，本人为标注来源的请提交Issues
 
-> Prompt
+> 提示
 
-This project prioritizes tracking of kernel-related privilege escalation vulnerabilities. If there is a remote command execution for the vulnerability in the current month, it will only be updated when the Internet is in EXP or POC. If there is any omission, please mention Issues and bring the exploit code.
+本项目优先追踪内核相关提权漏洞，如果当月漏洞存在远程命令执行的话，只有在互联网生存在EXP或者POC的时候才会更新，如有遗漏欢迎提Issues并带上利用代码
 
-**[中文文档](./README.CN.md) | EnglishDocumentation**
-
-> Numbered list
+> 编号列表
 
 | SecurityBulletin                   |                         Description                          |                     OperatingSystem                      |
 | :--------------------------------- | :----------------------------------------------------------: | :------------------------------------------------------: |
@@ -98,9 +96,9 @@ This project prioritizes tracking of kernel-related privilege escalation vulnera
 
 
 
-### Required environment
+### 所需环境
 
-- Test target system
+- 测试目标系统
 
   ```bash
   #Windows 7 SP1 X64 
@@ -129,7 +127,7 @@ This project prioritizes tracking of kernel-related privilege escalation vulnera
   magnet:?xt=urn:btih:8E49569FDE852E4F3CCB3D13EFB296B6B02D82A6
   ```
 
-- Linux compilation environment
+- Linux编译环境
 
   ```bash
   sudo vim /etc/apt/sources.list
@@ -139,53 +137,53 @@ This project prioritizes tracking of kernel-related privilege escalation vulnera
   sudo apt-get install gcc-mingw-w64-i686 g++-mingw-w64-i686 mingw-w64-tools
   ```
 
-- Windows compilation environment
+- Windows编译环境
 
   ```
   VS2019（内置V142、V141、V120、V110、V100、V141_xp、V120_xp、V110_xp、MFC）
   ```
 
-### About the error
+### 关于错误
 
-Due to the large content of the project, it is inevitable that there will be some typos or missing CVE numbers. If you find an error, you still hope to submit Issues to help me maintain the project.
+由于项目内容较多，难免有些错别字或者遗漏的CVE编号等问题，如果您发现了错误，还望提交Issues来帮助我维护该项目。
 
-> No test success number
+> 未测试成功编号
 
-The following numbers are all CVEs that failed to pass the recurrence test after screening, with reasons for failure, and welcome to submit PR
+下列编号都是在筛选后未能通过复现测试的CVE，附带未成功原因，欢迎提交PR
 
-| SecurityBulletin | Remarks                                                      |
-| ---------------- | ------------------------------------------------------------ |
-| CVE-2021-1709    | January 2021 patch, routine update                           |
-| CVE-2020-17087   | Patch in November 2020, only proof of concept, no exploit code |
-| CVE-2015-0002    | Source code failed to test                                   |
-| CVE-2015-0062    | Source code and EXP failed to test successfully              |
-| CVE-2015-1725    | Unknown compilation method with source code                  |
-| CVE-2016-3309    | Source code and EXP failed to test successfully              |
-| CVE-2014-6321    | Only winshock_test.sh file                                   |
-| CVE-2019-0859    | Need to install windows7 sp1 x64 Need to update the March 2019 patch |
-| CVE-2018-8440    | unknown                                                      |
-| CVE-2018-1038    | Unknown compilation method with source code                  |
-| CVE-2013-5065    | Lack of NDProxy environment                                  |
-| CVE-2013-0008    | unknown                                                      |
-| CVE-2009-0079    | Failed to use                                                |
-| CVE-2011-0045    | Could not find available EXP                                 |
-| CVE-2010-2554    | Could not find available EXP                                 |
-| CVE-2005-1983    | Source code and EXP failed to test successfully              |
-| CVE-2012-0002    | Blue screen vulnerabilities have no practical value          |
-| CVE-2010-0020    | Could not find available EXP                                 |
-| CVE-2014-6324    | unknown                                                      |
-| CVE-2018-0743    | Could not find available EXP                                 |
+| SecurityBulletin | Remarks                                            |
+| ---------------- | -------------------------------------------------- |
+| CVE-2021-1709    | 2021年1月补丁，例行更新                            |
+| CVE-2020-17087   | 2020年11月补丁，只有概念验证，无利用代码           |
+| CVE-2015-0002    | 有源码未能测试成功                                 |
+| CVE-2015-0062    | 有源码和EXP未能测试成功                            |
+| CVE-2015-1725    | 有源码未知编译方式                                 |
+| CVE-2016-3309    | 有源码和EXP未能测试成功                            |
+| CVE-2014-6321    | 只有winshock_test.sh文件                           |
+| CVE-2019-0859    | 需要安装windows7 sp1 x64 需要更新2019年3月份的补丁 |
+| CVE-2018-8440    | 未知                                               |
+| CVE-2018-1038    | 有源码未知编译方式                                 |
+| CVE-2013-5065    | 缺少NDProxy环境                                    |
+| CVE-2013-0008    | 未知                                               |
+| CVE-2009-0079    | 未能利用                                           |
+| CVE-2011-0045    | 未能找到可用EXP                                    |
+| CVE-2010-2554    | 未能找到可用EXP                                    |
+| CVE-2005-1983    | 有源码和EXP未能测试成功                            |
+| CVE-2012-0002    | 蓝屏漏洞无实际利用价值                             |
+| CVE-2010-0020    | 未能找到可用EXP                                    |
+| CVE-2014-6324    | 未知                                               |
+| CVE-2018-0743    | 未能找到利用POC                                    |
 
-### Disclaimer
+### 免责声明
 
-This project is only oriented to **legally authorized** corporate safety construction behaviors. When using this project for testing, you should ensure that the behavior complies with local laws and regulations and has obtained sufficient authorization.
+本项目仅面向**合法授权**的企业安全建设行为，在使用本项目进行检测时，您应确保该行为符合当地的法律法规，并且已经取得了足够的授权。
 
-If you have any illegal behavior in the process of using this project, you need to bear the corresponding consequences yourself, and we will not bear any legal and joint liabilities. 
+如您在使用本项目的过程中存在任何非法行为，您需自行承担相应后果，我们将不承担任何法律及连带责任。
 
-Before using this project, please **read carefully and fully understand the content of each clause**. Restrictions, exemption clauses or other clauses involving your major rights and interests may be bolded, underlined, etc. to remind you to pay attention. Unless you have fully read, fully understood and accepted all the terms of this agreement, please do not use this item. Your use behavior or your acceptance of this agreement in any other express or implied manner shall be deemed to have been read and agreed to be bound by this agreement.
+在使用本项目前，请您**务必审慎阅读、充分理解各条款内容**，限制、免责条款或者其他涉及您重大权益的条款可能会以加粗、加下划线等形式提示您重点注意。 除非您已充分阅读、完全理解并接受本协议所有条款，否则，请您不要使用本项目。您的使用行为或者您以其他任何明示或者默示方式表示接受本协议的，即视为您已阅读并同意本协议的约束。
 
 
-### Reference project & website
+### 参考项目&网站
 
 - [windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
 - [WindowsExploits](https://github.com/abatchy17/WindowsExploits)
