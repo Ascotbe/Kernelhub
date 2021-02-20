@@ -190,6 +190,6 @@ Before using this project, please **read carefully and fully understand the cont
 - [windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
 - [WindowsExploits](https://github.com/abatchy17/WindowsExploits)
 - [Exploits](https://github.com/WindowsExploits/Exploits)
-- [CVE](cve.mitre.org)
+- [CVE](https://cve.mitre.org)
 - [CVE Details](https://www.cvedetails.com/)
 
