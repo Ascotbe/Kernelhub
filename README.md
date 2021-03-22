@@ -11,11 +11,15 @@
 
 > Preface
 
-This project is a Windows privilege collection project. Except for failing the test EXP, there are detailed instructions and demonstration GIF pictures. If the code in the project has your code, please submit Issues if you are the source of the mark.
+- This project is a collection of Windows privileges, in addition to not pass the test Exp, Demo GIF map, if the code in the project has your code, you have not labeled the source, please submit your Issues
+- If there is an omission of the project, please pleasely add Issues and bring the use of code.
+- This project is prioritized by the kernel-related rights vulnerability. If there is a remote command execution in the month, only when the Internet is expuple, it will be updated.
 
-> Prompt
+> Assist
 
-This project prioritizes tracking of kernel-related privilege escalation vulnerabilities. If there is a remote command execution for the vulnerability in the current month, it will only be updated when the Internet is in EXP or POC. If there is any omission, please mention Issues and bring the exploit code.
+In the project, the lack of ordinary order documentation, if English is good, friends welcome to submit PR
+
+
 
 **[中文文档](./README.CN.md) | EnglishDocumentation**
 
