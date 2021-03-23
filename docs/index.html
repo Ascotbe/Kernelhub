@@ -1,0 +1,27 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-15 17:48:17
+ * @LastEditTime: 2021-03-23 11:59:25
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /Kernelhub/docs/index.html
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <title>Kernelhub</title>
+</head>
+<body>
+  <script>
+    var latest_version = 'Documentation';
+    var hash = window.location.hash;
+    if (!hash || hash.length == 0) {
+      hash = '#/';
+    }
+    window.location.replace(latest_version + '/' + hash);
+  </script>
+</body>
+</html>
