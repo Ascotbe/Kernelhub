@@ -1,5 +1,4 @@
  <h1 align="center" >Welcome to Kernelhub</h1>
-
  <p align="center">
     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://img.shields.io/badge/Ascotbe-Kernelhub-green"></a>
     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://img.shields.io/badge/LICENSE-GPL-ff69b4"></a>
@@ -14,6 +13,7 @@
 - This project is a collection of Windows privileges, in addition to not pass the test Exp, Demo GIF map, if the code in the project has your code, you have not labeled the source, please submit your Issues
 - If there is an omission of the project, please pleasely add Issues and bring the use of code.
 - This project is prioritized by the kernel-related rights vulnerability. If there is a remote command execution in the month, only when the Internet is expuple, it will be updated.
+- The reliability of the code is self-verified, and the illness items you have caused are not responsible.
 
 > Assist
 
@@ -32,6 +32,7 @@ In the project, the lack of ordinary order documentation, if English is good, fr
 | [CVE-2020-17087](./CVE-2020-17087) |  Windows Kernel Local Elevation of Privilege Vulnerability   | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-16938](./CVE-2020-16938) |     Windows Kernel Information Disclosure Vulnerability      |               Windows Server                |
 | [CVE-2020-16898](./CVE-2020-16898) |      Windows TCP/IP Remote Code Execution Vulnerability      |           Windows 10/2019/Server            |
+| [CVE-2020-1054](./CVE-2020-1054)   |                Win32k Elevation of Privilege                 | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-1472](./CVE-2020-1472)   |               Netlogon Elevation of Privilege                |     Windows 2008/2012/2016/2019/Server      |
 | [CVE-2020-0796](./CVE-2020-0796)   |                 SMBv3 Remote Code Execution                  |               Windows Server                |
 | [CVE-2020-0787](./CVE-2020-0787)   |       Windows Background Intelligent Transfer Service        |     Windows 7/8/10/2008/2012/2016/2019      |

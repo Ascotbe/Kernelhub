@@ -1,5 +1,4 @@
  <h1 align="center" >Welcome to Kernelhub</h1>
-
  <p align="center">
     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://img.shields.io/badge/Ascotbe-Kernelhub-green"></a>
     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://img.shields.io/badge/LICENSE-GPL-ff69b4"></a>
@@ -14,6 +13,7 @@
 - 本项目是一个Windows提权相关的集合，除未通过测试EXP都有详细说明以及演示GIF图，如果项目中的代码有您的代码，本人未标注来源的请提交Issues
 - 如有本项目存在遗漏的CVE漏洞，欢迎提Issues并带上利用代码
 - 本项目优先追踪内核相关提权漏洞，如果当月漏洞存在远程命令执行的话，只有在互联网生存在EXP或者POC的时候才会更新
+- 代码的可靠性自行验证，您造成的过失项目作者概不负责
 
 > 协助
 
@@ -30,6 +30,7 @@
 | [CVE-2020-17087](./CVE-2020-17087) |  Windows Kernel Local Elevation of Privilege Vulnerability   | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-16938](./CVE-2020-16938) |     Windows Kernel Information Disclosure Vulnerability      |               Windows Server                |
 | [CVE-2020-16898](./CVE-2020-16898) |      Windows TCP/IP Remote Code Execution Vulnerability      |           Windows 10/2019/Server            |
+| [CVE-2020-1054](./CVE-2020-1054)   |                Win32k Elevation of Privilege                 | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-1472](./CVE-2020-1472)   |               Netlogon Elevation of Privilege                |     Windows 2008/2012/2016/2019/Server      |
 | [CVE-2020-0796](./CVE-2020-0796)   |                 SMBv3 Remote Code Execution                  |               Windows Server                |
 | [CVE-2020-0787](./CVE-2020-0787)   |       Windows Background Intelligent Transfer Service        |     Windows 7/8/10/2008/2012/2016/2019      |

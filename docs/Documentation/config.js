@@ -217,6 +217,9 @@ let config = {
                         path: '/CN/CVE-2020-1472', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2020-1472/README.md'
                 },
                 {
+                        path: '/CN/CVE-2020-1054', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2020-1054/README.md'
+                },
+                {
                         path: '/CN/CVE-2020-16898', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2020-16898/README.md'
                 },
                 {
