@@ -1,0 +1,114 @@
+#pragma once
+#include<windows.h>
+
+/*
+
+Microsoft_Code_Name	Windows_10_Version	Microsoft_Marketing_Name	 Release_Date
+Threshold 1 (TH1)         1507                  ------                July 2015
+Threshold 2 (TH2)         1511	                ------                November 2015
+Redstone 1  (RS1)         1607	           Anniversary Update	      August 2016
+Redstone 2  (RS2)         1703	           Creators Update	          April 2017
+Redstone 3  (RS3)         1709	           Fall Creators Update	      October 2017
+Redstone 4  (RS4)         1803	           April 2018 Update	      April 2018
+
+*/
+
+
+
+
+
+
+typedef enum class _HANDLE_TYPE : ULONG_PTR
+{
+	TYPE_FREE = 0,
+	TYPE_WINDOW = 1,
+	TYPE_MENU = 2,
+	TYPE_CURSOR = 3,
+	TYPE_SETWINDOWPOS = 4,
+	TYPE_HOOK = 5,
+	TYPE_CLIPDATA = 6,
+	TYPE_CALLPROC = 7,
+	TYPE_ACCELTABLE = 8,
+	TYPE_DDEACCESS = 9,
+	TYPE_DDECONV = 10,
+	TYPE_DDEXACT = 11,
+	TYPE_MONITOR = 12,
+	TYPE_KBDLAYOUT = 13,
+	TYPE_KBDFILE = 14,
+	TYPE_WINEVENTHOOK = 15,
+	TYPE_TIMER = 16,
+	TYPE_INPUTCONTEXT = 17,
+	TYPE_HIDDATA = 18,
+	TYPE_DEVICEINFO = 19,
+	TYPE_TOUCHINPUTINFO = 20,
+	TYPE_GESTUREINFOOBJ = 21,
+	TYPE_CTYPES,
+	TYPE_GENERIC = 255
+} HANDLE_TYPE, * PHANDLE_TYPE;
+
+
+typedef struct _GdiCell
+{
+	PVOID pKernelAddress;
+	UINT16 wProcessIdl;
+	UINT16 wCount;
+	UINT16 wUpper;
+	UINT16 uType;
+	PVOID pUserAddress;
+}GdiCell, * pGdiCell;
+
+typedef struct _HandleEntry
+{
+	PULONG_PTR phead;
+	PULONG_PTR pOwner;
+	BYTE	   bType;
+	BYTE	   bFlalgs;
+	USHORT	   wUniq;
+}HandleEntry, * pHandleEntry;
+
+typedef struct _tagServerInfo
+{
+	ULONG dwSRVIFlags;
+	ULONG_PTR cHandleEntries;
+	//...
+}tagServerInfo, * ptagServerInfo;
+
+typedef struct _tagSharedInfo
+{
+	ptagServerInfo psi;
+	pHandleEntry   aheList;
+	//...
+}tagSharedInfo, * PtagSharedInfo;
+
+
+using _xxxHmValidateHandle = PVOID(__fastcall*)(HANDLE hwnd, ULONG_PTR handleType);
+
+
+
+
+
+
+class leak
+{
+public:
+	leak();	
+	~leak() {};
+	PVOID GetGdiKernelAddress(HANDLE hGdi);											 // RS1之前可用，用于GDI Object
+	PVOID GetUserObjectAddressBygSharedInfo(HANDLE hWnd,PULONG_PTR UserAddr);	     // RS2之前可用，用于User Obejct
+	_xxxHmValidateHandle HmValidateHandle;				     // RS4之前可用，返回在用户层映射的地址，用于User Object，可以根据heap->pSelf找到内核地址
+	ULONG_PTR g_DeltaDesktopHeap;
+
+private:
+	void GetGdiSharedHandleTable();					
+	void Get_gSharedInfo_ulClientDelta();
+	void GetXXXHmValidateHandle();
+	
+public:
+	pGdiCell GdiSharedHandleTable;
+	PtagSharedInfo gSharedInfo;
+};
+
+
+
+
+

