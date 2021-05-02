@@ -27,13 +27,16 @@
 | :--------------------------------- | :----------------------------------------------------------: | :-----------------------------------------: |
 | [CVE-2021-1732](./CVE-2021-1732)   |                        Windows Win32k                        |           Windows 10/2019/Server            |
 | [CVE-2021-1709](./CVE-2021-1709)   |                        Windows Win32k                        | Windows 7/8.1/10/2008/2012/2016/2019/Server |
-| [CVE-2020-17087](./CVE-2020-17087) |  Windows Kernel Local Elevation of Privilege Vulnerability   | Windows 7/8.1/10/2008/2012/2016/2019/Server |
-| [CVE-2020-16938](./CVE-2020-16938) |     Windows Kernel Information Disclosure Vulnerability      |               Windows Server                |
-| [CVE-2020-16898](./CVE-2020-16898) |      Windows TCP/IP Remote Code Execution Vulnerability      |           Windows 10/2019/Server            |
+| [CVE-2020-17087](./CVE-2020-17087) |         Windows Kernel Local Elevation of Privilege          | Windows 7/8.1/10/2008/2012/2016/2019/Server |
+| [CVE-2020-16938](./CVE-2020-16938) |            Windows Kernel Information Disclosure             |               Windows Server                |
+| [CVE-2020-16898](./CVE-2020-16898) |             Windows TCP/IP Remote Code Execution             |           Windows 10/2019/Server            |
 | [CVE-2020-1054](./CVE-2020-1054)   |                Win32k Elevation of Privilege                 | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-1472](./CVE-2020-1472)   |               Netlogon Elevation of Privilege                |     Windows 2008/2012/2016/2019/Server      |
+| [CVE-2020-0668](./CVE-2020-0668)   |            Windows Kernel Elevation of Privilege             | Windows 7/8.1/10/2008/2012/2016/2019/Serve  |
 | [CVE-2020-0796](./CVE-2020-0796)   |                 SMBv3 Remote Code Execution                  |               Windows Server                |
 | [CVE-2020-0787](./CVE-2020-0787)   |       Windows Background Intelligent Transfer Service        |     Windows 7/8/10/2008/2012/2016/2019      |
+| [CVE-2019-0808](.CVE-2019-0808)    |                Win32k Elevation of Privilege                 |               Windows 7/2008                |
+| [CVE-2019-0623](.CVE-2019-0808)    |                Win32k Elevation of Privilege                 |    Windows 7/8.1/10/2008/2012/2016/Serve    |
 | [CVE-2019-1458](./CVE-2019-1458)   |                Win32k Elevation of Privilege                 |        Windows 7/8/10/2008/2012/2016        |
 | [CVE-2019-1388](./CVE-2019-1388)   |      Windows Certificate Dialog Elevation of Privilege       |       Windows 7/8/2008/2012/2016/2019       |
 | [CVE-2019-0859](./CVE-2019-0859)   |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2008/2012/2016/2019      |
@@ -147,8 +150,9 @@
 
 - Windows编译环境
 
-  ```
-  VS2019（内置V142、V141、V120、V110、V100、V141_xp、V120_xp、V110_xp、MFC）
+  ```bash
+  #(.NET下载地址)https://dotnet.microsoft.com/download/visual-studio-sdks?utm_source=getdotnetsdk&utm_medium=referral
+  VS2019（内置V142、V141、V120、V110、V100、V141_xp、V120_xp、V110_xp、MFC、.NET Framework 4.7.2）
   ```
 
 ### 关于错误
