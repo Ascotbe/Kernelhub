@@ -23,83 +23,83 @@
 
 > 编号列表
 
-| SecurityBulletin                   |                         Description                          |               OperatingSystem               |
-| :--------------------------------- | :----------------------------------------------------------: | :-----------------------------------------: |
-| [CVE-2021-1732](./CVE-2021-1732)   |                        Windows Win32k                        |           Windows 10/2019/Server            |
-| [CVE-2021-1709](./CVE-2021-1709)   |                        Windows Win32k                        | Windows 7/8.1/10/2008/2012/2016/2019/Server |
-| [CVE-2020-17087](./CVE-2020-17087) |         Windows Kernel Local Elevation of Privilege          | Windows 7/8.1/10/2008/2012/2016/2019/Server |
-| [CVE-2020-16938](./CVE-2020-16938) |            Windows Kernel Information Disclosure             |               Windows Server                |
-| [CVE-2020-16898](./CVE-2020-16898) |             Windows TCP/IP Remote Code Execution             |           Windows 10/2019/Server            |
-| [CVE-2020-1054](./CVE-2020-1054)   |                Win32k Elevation of Privilege                 | Windows 7/8.1/10/2008/2012/2016/2019/Server |
-| [CVE-2020-1472](./CVE-2020-1472)   |               Netlogon Elevation of Privilege                |     Windows 2008/2012/2016/2019/Server      |
-| [CVE-2020-0668](./CVE-2020-0668)   |            Windows Kernel Elevation of Privilege             | Windows 7/8.1/10/2008/2012/2016/2019/Serve  |
-| [CVE-2020-0796](./CVE-2020-0796)   |                 SMBv3 Remote Code Execution                  |               Windows Server                |
-| [CVE-2020-0787](./CVE-2020-0787)   |       Windows Background Intelligent Transfer Service        |     Windows 7/8/10/2008/2012/2016/2019      |
-| [CVE-2019-0808](.CVE-2019-0808)    |                Win32k Elevation of Privilege                 |               Windows 7/2008                |
-| [CVE-2019-0623](.CVE-2019-0808)    |                Win32k Elevation of Privilege                 |    Windows 7/8.1/10/2008/2012/2016/Serve    |
-| [CVE-2019-1458](./CVE-2019-1458)   |                Win32k Elevation of Privilege                 |        Windows 7/8/10/2008/2012/2016        |
-| [CVE-2019-1388](./CVE-2019-1388)   |      Windows Certificate Dialog Elevation of Privilege       |       Windows 7/8/2008/2012/2016/2019       |
-| [CVE-2019-0859](./CVE-2019-0859)   |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2008/2012/2016/2019      |
-| [CVE-2019-0803](./CVE-2019-0803)   |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2008/2012/2016/2019      |
-| [CVE-2018-8639](./CVE-2018-8639)   |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2008/2012/2016/2019      |
-| [CVE-2018-8453](./CVE-2018-8453)   |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2008/2012/2016/2019      |
-| [CVE-2018-8440](./CVE-2018-8440)   |             Windows ALPC Elevation of Privilege              |        Windows 7/8/10/2008/2012/2016        |
-| [CVE-2018-8120](./CVE-2018-8120)   |                Win32k Elevation of Privilege                 |               Windows 7/2008                |
-| [CVE-2018-1038](./CVE-2018-1038)   |            Windows Kernel Elevation of Privilege             |               Windows 7/2008                |
-| [CVE-2018-0743](./CVE-2018-0743)   |      Windows Subsystem for Linux Elevation of Privilege      |               Windows 10/2016               |
-| [CVE-2018-0833](./CVE-2018-0833)   |       SMBv3 Null Pointer Dereference Denial of Service       |               Windows 8/2012                |
-| [CVE-2017-8464](./CVE-2017-8464)   |                  LNK Remote Code Execution                   |        Windows 7/8/10/2008/2012/2016        |
-| [CVE-2017-0213](./CVE-2017-0213)   |              Windows COM Elevation of Privilege              |        Windows 7/8/10/2008/2012/2016        |
-| [CVE-2017-0143](./CVE-2017-0143)   |                 Windows Kernel Mode Drivers                  |     Windows 7/8/10/2008/2012/2016/Vista     |
-| [CVE-2017-0101](./CVE-2017-0101)   |        GDI Palette Objects Local Privilege Escalation        |       Windows 7/8/10/2008/2012/Vista        |
-| [CVE-2016-7255](./CVE-2016-7255)   |                 Windows Kernel Mode Drivers                  |     Windows 7/8/10/2008/2012/2016/Vista     |
-| [CVE-2016-3371](./CVE-2016-3371)   |            Windows Kernel Elevation of Privilege             |       Windows 7/8/10/2008/2012/Vista        |
-| [CVE-2016-3309](./CVE-2016-3309)   |                Win32k Elevation of Privilege                 |       Windows 7/8/10/2008/2012/Vista        |
-| [CVE-2016-3225](./CVE-2016-3225)   |          Windows SMB Server Elevation of Privilege           |       Windows 7/8/10/2008/2012/Vista        |
-| [CVE-2016-0099](./CVE-2016-0099)   |                    Secondary Logon Handle                    |       Windows 7/8/10/2008/2012/Vista        |
-| [CVE-2016-0095](./CVE-2016-0095)   |                Win32k Elevation of Privilege                 |       Windows 7/8/10/2008/2012/Vista        |
-| [CVE-2016-0051](./CVE-2016-0051)   |                WebDAV Elevation of Privilege                 |       Windows 7/8/10/2008/2012/Vista        |
-| [CVE-2016-0041](./CVE-2016-0041)   |       Win32k Memory Corruption Elevation of Privilege        |       Windows 7/8/10/2008/2012/Vista        |
-| [CVE-2015-2546](./CVE-2015-2546)   |       Win32k Memory Corruption Elevation of Privilege        |       Windows 7/8/10/2008/2012/Vista        |
-| [CVE-2015-2387](./CVE-2015-2387)   |                 ATMFD.DLL Memory Corruption                  |     Windows 7/8/2003/2008/2012/Vista/Rt     |
-| [CVE-2015-2370](./CVE-2015-2370)   |              Windows RPC Elevation of Privilege              |     Windows 7/8/10/2003/2008/2012/Vista     |
-| [CVE-2015-1725](./CVE-2015-1725)   |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2003/2008/2012/Vista     |
-| [CVE-2015-1701](./CVE-2015-1701)   |                 Windows Kernel Mode Drivers                  |          Windows 7/2003/2008/Vista          |
-| [CVE-2015-0062](./CVE-2015-0062)   |        Windows Create Process Elevation of Privilege         |            Windows 7/8/2008/2012            |
-| [CVE-2015-0057](./CVE-2015-0057)   |                Win32k Elevation of Privilege                 |      Windows 7/8/2003/2008/2012/Vista       |
-| [CVE-2015-0003](./CVE-2015-0003)   |                Win32k Elevation of Privilege                 |      Windows 7/8/2003/2008/2012/Vista       |
-| [CVE-2015-0002](./CVE-2015-0002)   | Microsoft Application Compatibility Infrastructure Elevation of Privilege |         Windows 7/8/2003/2008/2012          |
-| [CVE-2014-6324](./CVE-2014-6324)   |               Kerberos Checksum Vulnerability                |      Windows 7/8/2003/2008/2012/Vista       |
-| [CVE-2014-6321](./CVE-2014-6321)   |           Microsoft Schannel Remote Code Execution           |      Windows 7/8/2003/2008/2012/Vista       |
-| [CVE-2014-4113](./CVE-2014-4113)   |              Win32k.sys Elevation of Privilege               |      Windows 7/8/2003/2008/2012/Vista       |
-| [CVE-2014-4076](./CVE-2014-4076)   |                TCP/IP Elevation of Privilege                 |                Windows 2003                 |
-| [CVE-2014-1767](./CVE-2014-1767)   |       Ancillary Function Driver Elevation of Privilege       |      Windows 7/8/2003/2008/2012/Vista       |
-| [CVE-2013-5065](./CVE-2013-5065)   |                         NDProxy.sys                          |               Windows XP/2003               |
-| [CVE-2013-1345](./CVE-2013-1345)   |                        Kernel Driver                         |   Windows 7/8/2003/2008/2012/Vista/Rt/Xp    |
-| [CVE-2013-1332](./CVE-2013-1332)   |        DirectX Graphics Kernel Subsystem Double Fetch        |     Windows 7/8/2003/2008/2012/Vista/Rt     |
-| [CVE-2013-0008](./CVE-2013-0008)   |               Win32k Improper Message Handling               |       Windows 7/8/2008/2012/Vista/Rt        |
-| [CVE-2012-0217](./CVE-2012-0217)   |                         Service Bus                          |           Windows 7/2003/2008/Xp            |
-| [CVE-2012-0002](./CVE-2012-0002)   |                   Remote Desktop Protocol                    |        Windows 7/2003/2008/Vista/Xp         |
-| [CVE-2011-2005](./CVE-2011-2005)   |       Ancillary Function Driver Elevation of Privilege       |               Windows 2003/Xp               |
-| [CVE-2011-1974](./CVE-2011-1974)   |               NDISTAPI Elevation of Privilege                |               Windows 2003/Xp               |
-| [CVE-2011-1249](./CVE-2011-1249)   |       Ancillary Function Driver Elevation of Privilege       |        Windows 7/2003/2008/Vista/Xp         |
-| [CVE-2011-0045](./CVE-2011-0045)   |              Windows Kernel Integer Truncation               |                 Windows Xp                  |
-| [CVE-2010-4398](./CVE-2010-4398)   |       Driver Improper Interaction with Windows Kernel        |        Windows 7/2003/2008/Vista/Xp         |
-| [CVE-2010-3338](./CVE-2010-3338)   |                        Task Scheduler                        |            Windows 7/2008/Vista             |
-| [CVE-2010-2554](./CVE-2010-2554)   |                   Tracing Registry Key ACL                   |            Windows 7/2008/Vista             |
-| [CVE-2010-1897](./CVE-2010-1897)   |                    Win32k Window Creation                    |        Windows 7/2003/2008/Vista/Xp         |
-| [CVE-2010-0270](./CVE-2010-0270)   |                    SMB Client Transaction                    |               Windows 7/2008                |
-| [CVE-2010-0233](./CVE-2010-0233)   |                  Windows Kernel Double Free                  |       Windows 2000/2003/2008/Vista/Xp       |
-| [CVE-2010-0020](./CVE-2010-0020)   |                    SMB Pathname Overflow                     |      Windows 7/2000/2003/2008/Vista/Xp      |
-| [CVE-2009-2532](./CVE-2009-2532)   |                     SMBv2 Command Value                      |             Windows 2008/Vista              |
-| [CVE-2009-0079](./CVE-2009-0079)   |               Windows RPCSS Service Isolation                |               Windows 2003/Xp               |
-| [CVE-2008-4250](./CVE-2008-4250)   |                        Server Service                        |         Windows 2000/2003/Vista/Xp          |
-| [CVE-2008-4037](./CVE-2008-4037)   |                  SMB Credential Reflection                   |       Windows 2000/2003/2008/Vista/Xp       |
-| [CVE-2008-3464](./CVE-2008-3464)   |                     AFD Kernel Overwrite                     |               Windows 2003/Xp               |
-| [CVE-2008-1084](./CVE-2008-1084)   |                          Win32.sys                           |       Windows 2000/2003/2008/Vista/Xp       |
-| [CVE-2006-3439](./CVE-2006-3439)   |                    Remote Code Execution                     |            Windows 2000/2003/Xp             |
-| [CVE-2005-1983](./CVE-2005-1983)   |                         PnP Service                          |               Windows 2000/Xp               |
-| [CVE-2003-0352](./CVE-2003-0352)   |               Buffer Overrun In RPC Interface                |           Windows 2000/2003/Xp/Nt           |
+| SecurityBulletin                               |                         Description                          |               OperatingSystem               |
+| :--------------------------------------------- | :----------------------------------------------------------: | :-----------------------------------------: |
+| [CVE-2021-1732](./CVE-2021-1732)               |                        Windows Win32k                        |           Windows 10/2019/Server            |
+| [CVE-2021-1709](./TestFailure/CVE-2021-1709)   |                        Windows Win32k                        | Windows 7/8.1/10/2008/2012/2016/2019/Server |
+| [CVE-2020-17087](./TestFailure/CVE-2020-17087) |         Windows Kernel Local Elevation of Privilege          | Windows 7/8.1/10/2008/2012/2016/2019/Server |
+| [CVE-2020-16938](./CVE-2020-16938)             |            Windows Kernel Information Disclosure             |               Windows Server                |
+| [CVE-2020-16898](./CVE-2020-16898)             |             Windows TCP/IP Remote Code Execution             |           Windows 10/2019/Server            |
+| [CVE-2020-1054](./CVE-2020-1054)               |                Win32k Elevation of Privilege                 | Windows 7/8.1/10/2008/2012/2016/2019/Server |
+| [CVE-2020-1472](./CVE-2020-1472)               |               Netlogon Elevation of Privilege                |     Windows 2008/2012/2016/2019/Server      |
+| [CVE-2020-0668](./CVE-2020-0668)               |            Windows Kernel Elevation of Privilege             | Windows 7/8.1/10/2008/2012/2016/2019/Serve  |
+| [CVE-2020-0796](./CVE-2020-0796)               |                 SMBv3 Remote Code Execution                  |               Windows Server                |
+| [CVE-2020-0787](./CVE-2020-0787)               |       Windows Background Intelligent Transfer Service        |     Windows 7/8/10/2008/2012/2016/2019      |
+| [CVE-2019-0808](.CVE-2019-0808)                |                Win32k Elevation of Privilege                 |               Windows 7/2008                |
+| [CVE-2019-0623](.CVE-2019-0808)                |                Win32k Elevation of Privilege                 |    Windows 7/8.1/10/2008/2012/2016/Serve    |
+| [CVE-2019-1458](./CVE-2019-1458)               |                Win32k Elevation of Privilege                 |        Windows 7/8/10/2008/2012/2016        |
+| [CVE-2019-1388](./CVE-2019-1388)               |      Windows Certificate Dialog Elevation of Privilege       |       Windows 7/8/2008/2012/2016/2019       |
+| [CVE-2019-0859](./TestFailure/)                |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2008/2012/2016/2019      |
+| [CVE-2019-0803](./CVE-2019-0803)               |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2008/2012/2016/2019      |
+| [CVE-2018-8639](./CVE-2018-8639)               |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2008/2012/2016/2019      |
+| [CVE-2018-8453](./CVE-2018-8453)               |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2008/2012/2016/2019      |
+| [CVE-2018-8440](./TestFailure/CVE-2018-8440)   |             Windows ALPC Elevation of Privilege              |        Windows 7/8/10/2008/2012/2016        |
+| [CVE-2018-8120](./CVE-2018-8120)               |                Win32k Elevation of Privilege                 |               Windows 7/2008                |
+| [CVE-2018-1038](./TestFailure/CVE-2018-1038)   |            Windows Kernel Elevation of Privilege             |               Windows 7/2008                |
+| [CVE-2018-0743](./TestFailure/CVE-2018-0743)   |      Windows Subsystem for Linux Elevation of Privilege      |               Windows 10/2016               |
+| [CVE-2018-0833](./CVE-2018-0833)               |       SMBv3 Null Pointer Dereference Denial of Service       |               Windows 8/2012                |
+| [CVE-2017-8464](./CVE-2017-8464)               |                  LNK Remote Code Execution                   |        Windows 7/8/10/2008/2012/2016        |
+| [CVE-2017-0213](./CVE-2017-0213)               |              Windows COM Elevation of Privilege              |        Windows 7/8/10/2008/2012/2016        |
+| [CVE-2017-0143](./CVE-2017-0143)               |                 Windows Kernel Mode Drivers                  |     Windows 7/8/10/2008/2012/2016/Vista     |
+| [CVE-2017-0101](./CVE-2017-0101)               |        GDI Palette Objects Local Privilege Escalation        |       Windows 7/8/10/2008/2012/Vista        |
+| [CVE-2016-7255](./CVE-2016-7255)               |                 Windows Kernel Mode Drivers                  |     Windows 7/8/10/2008/2012/2016/Vista     |
+| [CVE-2016-3371](./CVE-2016-3371)               |            Windows Kernel Elevation of Privilege             |       Windows 7/8/10/2008/2012/Vista        |
+| [CVE-2016-3309](./TestFailure/CVE-2016-3309)   |                Win32k Elevation of Privilege                 |       Windows 7/8/10/2008/2012/Vista        |
+| [CVE-2016-3225](./CVE-2016-3225)               |          Windows SMB Server Elevation of Privilege           |       Windows 7/8/10/2008/2012/Vista        |
+| [CVE-2016-0099](./CVE-2016-0099)               |                    Secondary Logon Handle                    |       Windows 7/8/10/2008/2012/Vista        |
+| [CVE-2016-0095](./CVE-2016-0095)               |                Win32k Elevation of Privilege                 |       Windows 7/8/10/2008/2012/Vista        |
+| [CVE-2016-0051](./CVE-2016-0051)               |                WebDAV Elevation of Privilege                 |       Windows 7/8/10/2008/2012/Vista        |
+| [CVE-2016-0041](./CVE-2016-0041)               |       Win32k Memory Corruption Elevation of Privilege        |       Windows 7/8/10/2008/2012/Vista        |
+| [CVE-2015-2546](./CVE-2015-2546)               |       Win32k Memory Corruption Elevation of Privilege        |       Windows 7/8/10/2008/2012/Vista        |
+| [CVE-2015-2387](./CVE-2015-2387)               |                 ATMFD.DLL Memory Corruption                  |     Windows 7/8/2003/2008/2012/Vista/Rt     |
+| [CVE-2015-2370](./CVE-2015-2370)               |              Windows RPC Elevation of Privilege              |     Windows 7/8/10/2003/2008/2012/Vista     |
+| [CVE-2015-1725](./TestFailure/CVE-2015-1725)   |                Win32k Elevation of Privilege                 |     Windows 7/8/10/2003/2008/2012/Vista     |
+| [CVE-2015-1701](./CVE-2015-1701)               |                 Windows Kernel Mode Drivers                  |          Windows 7/2003/2008/Vista          |
+| [CVE-2015-0062](./TestFailure/CVE-2015-0062)   |        Windows Create Process Elevation of Privilege         |            Windows 7/8/2008/2012            |
+| [CVE-2015-0057](./CVE-2015-0057)               |                Win32k Elevation of Privilege                 |      Windows 7/8/2003/2008/2012/Vista       |
+| [CVE-2015-0003](./CVE-2015-0003)               |                Win32k Elevation of Privilege                 |      Windows 7/8/2003/2008/2012/Vista       |
+| [CVE-2015-0002](./TestFailure/CVE-2015-0002)   | Microsoft Application Compatibility Infrastructure Elevation of Privilege |         Windows 7/8/2003/2008/2012          |
+| [CVE-2014-6324](./TestFailure/CVE-2014-6324)   |               Kerberos Checksum Vulnerability                |      Windows 7/8/2003/2008/2012/Vista       |
+| [CVE-2014-6321](./TestFailure/CVE-2014-6321)   |           Microsoft Schannel Remote Code Execution           |      Windows 7/8/2003/2008/2012/Vista       |
+| [CVE-2014-4113](./CVE-2014-4113)               |              Win32k.sys Elevation of Privilege               |      Windows 7/8/2003/2008/2012/Vista       |
+| [CVE-2014-4076](./CVE-2014-4076)               |                TCP/IP Elevation of Privilege                 |                Windows 2003                 |
+| [CVE-2014-1767](./CVE-2014-1767)               |       Ancillary Function Driver Elevation of Privilege       |      Windows 7/8/2003/2008/2012/Vista       |
+| [CVE-2013-5065](./TestFailure/CVE-2013-5065)   |                         NDProxy.sys                          |               Windows XP/2003               |
+| [CVE-2013-1345](./CVE-2013-1345)               |                        Kernel Driver                         |   Windows 7/8/2003/2008/2012/Vista/Rt/Xp    |
+| [CVE-2013-1332](./CVE-2013-1332)               |        DirectX Graphics Kernel Subsystem Double Fetch        |     Windows 7/8/2003/2008/2012/Vista/Rt     |
+| [CVE-2013-0008](./TestFailure/CVE-2013-0008)   |               Win32k Improper Message Handling               |       Windows 7/8/2008/2012/Vista/Rt        |
+| [CVE-2012-0217](./CVE-2012-0217)               |                         Service Bus                          |           Windows 7/2003/2008/Xp            |
+| [CVE-2012-0002](./TestFailure/CVE-2012-0002)   |                   Remote Desktop Protocol                    |        Windows 7/2003/2008/Vista/Xp         |
+| [CVE-2011-2005](./CVE-2011-2005)               |       Ancillary Function Driver Elevation of Privilege       |               Windows 2003/Xp               |
+| [CVE-2011-1974](./CVE-2011-1974)               |               NDISTAPI Elevation of Privilege                |               Windows 2003/Xp               |
+| [CVE-2011-1249](./CVE-2011-1249)               |       Ancillary Function Driver Elevation of Privilege       |        Windows 7/2003/2008/Vista/Xp         |
+| [CVE-2011-0045](./TestFailure/CVE-2011-0045)   |              Windows Kernel Integer Truncation               |                 Windows Xp                  |
+| [CVE-2010-4398](./CVE-2010-4398)               |       Driver Improper Interaction with Windows Kernel        |        Windows 7/2003/2008/Vista/Xp         |
+| [CVE-2010-3338](./CVE-2010-3338)               |                        Task Scheduler                        |            Windows 7/2008/Vista             |
+| [CVE-2010-2554](./TestFailure/CVE-2010-2554)   |                   Tracing Registry Key ACL                   |            Windows 7/2008/Vista             |
+| [CVE-2010-1897](./CVE-2010-1897)               |                    Win32k Window Creation                    |        Windows 7/2003/2008/Vista/Xp         |
+| [CVE-2010-0270](./CVE-2010-0270)               |                    SMB Client Transaction                    |               Windows 7/2008                |
+| [CVE-2010-0233](./CVE-2010-0233)               |                  Windows Kernel Double Free                  |       Windows 2000/2003/2008/Vista/Xp       |
+| [CVE-2010-0020](./TestFailure/CVE-2010-0020)   |                    SMB Pathname Overflow                     |      Windows 7/2000/2003/2008/Vista/Xp      |
+| [CVE-2009-2532](./CVE-2009-2532)               |                     SMBv2 Command Value                      |             Windows 2008/Vista              |
+| [CVE-2009-0079](./TestFailure/CVE-2009-0079)   |               Windows RPCSS Service Isolation                |               Windows 2003/Xp               |
+| [CVE-2008-4250](./CVE-2008-4250)               |                        Server Service                        |         Windows 2000/2003/Vista/Xp          |
+| [CVE-2008-4037](./CVE-2008-4037)               |                  SMB Credential Reflection                   |       Windows 2000/2003/2008/Vista/Xp       |
+| [CVE-2008-3464](./CVE-2008-3464)               |                     AFD Kernel Overwrite                     |               Windows 2003/Xp               |
+| [CVE-2008-1084](./CVE-2008-1084)               |                          Win32.sys                           |       Windows 2000/2003/2008/Vista/Xp       |
+| [CVE-2006-3439](./CVE-2006-3439)               |                    Remote Code Execution                     |            Windows 2000/2003/Xp             |
+| [CVE-2005-1983](./TestFailure/CVE-2005-1983)   |                         PnP Service                          |               Windows 2000/Xp               |
+| [CVE-2003-0352](./CVE-2003-0352)               |               Buffer Overrun In RPC Interface                |           Windows 2000/2003/Xp/Nt           |
 
 
 
