@@ -12,7 +12,7 @@ let config = {
     repo: 'Ascotbe/Kernelhub',
     nav: [
         {
-            title: 'Introduction',  path: '/',source:'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/README.md',
+            title: 'Introduction',  path: '/Info'
         },
         {
             title: 'Directory navigation',type: 'dropdown', items: [
