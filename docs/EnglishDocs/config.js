@@ -8,11 +8,11 @@
  */
 let config = {
     title: 'Kernelhub',
-    home: 'Home.md',
+    home: 'Info.md',
     repo: 'Ascotbe/Kernelhub',
     nav: [
         {
-            title: 'Introduction',  path: '/Info'
+            title: 'Introduction',  path: '/'
         },
         {
             title: 'Directory navigation',type: 'dropdown', items: [

@@ -1,8 +1,8 @@
-var rootUrl = 'https://www.ascotbe.com/Medusa';
+var rootUrl = 'https://www.ascotbe.com/kernelhub';
 
 var versions = [
-	{ title: '中文', path: '/Documentation/' },
-	{ title: 'English', path: '/EnglishDocumentation/' },
+	{ title: '中文', path: '/Docs/' },
+	{ title: 'English', path: '/EnglishDocs/' },
 ]
 
 var latestVersionIndex = 0;

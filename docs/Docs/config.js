@@ -7,11 +7,11 @@ for line in lines:
 */
 let config = {
     title: 'Kernelhub',
-    home: '',
+    home: 'Info.md',
     repo: 'Ascotbe/Kernelhub',
     nav: [
         {
-            title: '简介', path: '/Info'
+            title: '简介', path: '/'
         },
         {
             title: '目录导航',type: 'dropdown', items: [
