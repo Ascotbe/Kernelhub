@@ -25,6 +25,7 @@ In the project, the lack of ordinary order documentation, if English is good, fr
 
 > Numbered list
 
+
 | SecurityBulletin                               |                         Description                          |               OperatingSystem               |
 | :--------------------------------------------- | :----------------------------------------------------------: | :-----------------------------------------: |
 | [CVE-2021-1732](./CVE-2021-1732)               |                        Windows Win32k                        |           Windows 10/2019/Server            |
@@ -32,6 +33,9 @@ In the project, the lack of ordinary order documentation, if English is good, fr
 | [CVE-2020-17087](./TestFailure/CVE-2020-17087) |         Windows Kernel Local Elevation of Privilege          | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-16938](./CVE-2020-16938)             |            Windows Kernel Information Disclosure             |               Windows Server                |
 | [CVE-2020-16898](./CVE-2020-16898)             |             Windows TCP/IP Remote Code Execution             |           Windows 10/2019/Server            |
+| [CVE-2020-1337](./CVE-2020-1337)               |               Windows Print Spooler Elevation                | Windows 7/8.1/10/2008/2012/2016/2019/Server |
+| [CVE-2020-1313](./CVE-2020-1313)               |        Windows Update Orchestrator Service Elevation         |              Windows 10/Server              |
+| [CVE-2020-1066](./CVE-2020-1066)               |                   .NET Framework Elevation                   |               Windows 7/2008                |
 | [CVE-2020-1054](./CVE-2020-1054)               |                Win32k Elevation of Privilege                 | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-1472](./CVE-2020-1472)               |               Netlogon Elevation of Privilege                |     Windows 2008/2012/2016/2019/Server      |
 | [CVE-2020-0668](./CVE-2020-0668)               |            Windows Kernel Elevation of Privilege             | Windows 7/8.1/10/2008/2012/2016/2019/Serve  |
@@ -102,6 +106,7 @@ In the project, the lack of ordinary order documentation, if English is good, fr
 | [CVE-2006-3439](./CVE-2006-3439)               |                    Remote Code Execution                     |            Windows 2000/2003/Xp             |
 | [CVE-2005-1983](./TestFailure/CVE-2005-1983)   |                         PnP Service                          |               Windows 2000/Xp               |
 | [CVE-2003-0352](./CVE-2003-0352)               |               Buffer Overrun In RPC Interface                |           Windows 2000/2003/Xp/Nt           |
+
 
 
 

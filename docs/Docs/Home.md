@@ -5,7 +5,10 @@
 | [CVE-2020-17087](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2020-17087) |  Windows Kernel Local Elevation of Privilege Vulnerability   | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-16938](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2020-16938) |     Windows Kernel Information Disclosure Vulnerability      |               Windows Server                |
 | [CVE-2020-16898](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2020-16898) |      Windows TCP/IP Remote Code Execution Vulnerability      |           Windows 10/2019/Server            |
-| [CVE-2020-1054](./CVE-2020-1054)                             |                Win32k Elevation of Privilege                 | Windows 7/8.1/10/2008/2012/2016/2019/Server |
+| [CVE-2020-1337](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2020-1337)               |               Windows Print Spooler Elevation                | Windows 7/8.1/10/2008/2012/2016/2019/Server |
+| [CVE-2020-1313](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2020-1313)               |        Windows Update Orchestrator Service Elevation         |              Windows 10/Server              |
+| [CVE-2020-1066](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2020-1066)               |                   .NET Framework Elevation                   |               Windows 7/2008                |
+| [CVE-2020-1054](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2020-1054)                             |                Win32k Elevation of Privilege                 | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-1472](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2020-1472) |               Netlogon Elevation of Privilege                |     Windows 2008/2012/2016/2019/Server      |
 | [CVE-2020-0796](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2020-0796) |                 SMBv3 Remote Code Execution                  |               Windows Server                |
 | [CVE-2020-0787](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2020-0787) |       Windows Background Intelligent Transfer Service        |     Windows 7/8/10/2008/2012/2016/2019      |

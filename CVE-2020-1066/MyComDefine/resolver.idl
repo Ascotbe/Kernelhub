@@ -1,0 +1,35 @@
+import "oaidl.idl";
+import "ocidl.idl";
+[
+	uuid(00645e6c-fc9f-4a0c-9896-f00b66297798),
+	version(1.0),
+]
+interface DefaultIfName
+{
+
+	typedef struct Struct_RpcRequest
+	{
+		[unique][string][size_is(101)] wchar_t* 	Type;
+		[range(0, 20971520)] long 	Length;
+		[unique][size_is(Length)]char *	Data;
+	}RpcRequest;
+
+	typedef struct Struct_RpcResponse
+	{
+		[range(0, 20971520)] long 	Length;
+		[unique][size_is(Length)]char *	Data;
+	}RpcResponse;
+
+	long Proc0_RPCClientBindToService(
+		[in] handle_t hBinding,
+		[out][context_handle] void** arg_1);
+
+	long Proc1_RPCDispatchClientRequest(
+		[in]struct Struct_RpcRequest* arg_1,
+		[out][ref]struct Struct_RpcResponse** arg_2);
+
+	long Proc2_RPCDispatchClientUIRequest(
+		[in][out][context_handle] void** arg_0,
+		[in]struct Struct_RpcRequest* arg_1,
+		[out][ref]struct Struct_RpcResponse** arg_2);
+}
