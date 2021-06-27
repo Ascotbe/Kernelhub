@@ -1,9 +1,11 @@
  <h1 align="center" >Welcome to Kernelhub</h1>
  <p align="center">
     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://img.shields.io/badge/Ascotbe-Kernelhub-green"></a>
+     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://visitor-badge.glitch.me/badge?page_id=https://github.com/Ascotbe/Kernelhub/README.md"></a>
     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://img.shields.io/badge/LICENSE-GPL-ff69b4"></a>
 	<a href="https://github.com/Ascotbe/Kernelhub/stargazers"><img alt="Release" src="https://img.shields.io/github/stars/ascotbe/Kernelhub.svg"></a>
 	<a href="https://github.com/Ascotbe/Medusa"><img alt="Release" src="https://img.shields.io/badge/scope-2000—2021-success"></a>
+     <a href="https://github.com/Ascotbe/Medusa"><img alt="Release" src="https://img.shields.io/github/repo-size/Ascotbe/Kernelhub"></a>
  </p>
 
 

@@ -1,9 +1,11 @@
  <h1 align="center" >Welcome to Kernelhub</h1>
  <p align="center">
     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://img.shields.io/badge/Ascotbe-Kernelhub-green"></a>
+     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://visitor-badge.glitch.me/badge?page_id=https://github.com/Ascotbe/Kernelhub/README.md"></a>
     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://img.shields.io/badge/LICENSE-GPL-ff69b4"></a>
 	<a href="https://github.com/Ascotbe/Kernelhub/stargazers"><img alt="Release" src="https://img.shields.io/github/stars/ascotbe/Kernelhub.svg"></a>
 	<a href="https://github.com/Ascotbe/Medusa"><img alt="Release" src="https://img.shields.io/badge/scope-2000—2021-success"></a>
+     <a href="https://github.com/Ascotbe/Medusa"><img alt="Release" src="https://img.shields.io/github/repo-size/Ascotbe/Kernelhub"></a>
  </p>
 
 
@@ -39,9 +41,11 @@ http://kernelhub.ascotbe.com
 | [CVE-2020-1337](./CVE-2020-1337)               |               Windows Print Spooler Elevation                | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-1313](./CVE-2020-1313)               |        Windows Update Orchestrator Service Elevation         |              Windows 10/Server              |
 | [CVE-2020-1066](./CVE-2020-1066)               |                   .NET Framework Elevation                   |               Windows 7/2008                |
+| [CVE-2020-1015](./CVE-2020-1015)               |                Windows Elevation of Privilege                | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-1054](./CVE-2020-1054)               |                Win32k Elevation of Privilege                 | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-1472](./CVE-2020-1472)               |               Netlogon Elevation of Privilege                |     Windows 2008/2012/2016/2019/Server      |
 | [CVE-2020-0668](./CVE-2020-0668)               |            Windows Kernel Elevation of Privilege             | Windows 7/8.1/10/2008/2012/2016/2019/Serve  |
+| [CVE-2020-0683](./CVE-2020-0683)               |           Windows Installer Elevation of Privilege           | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-0796](./CVE-2020-0796)               |                 SMBv3 Remote Code Execution                  |               Windows Server                |
 | [CVE-2020-0787](./CVE-2020-0787)               |       Windows Background Intelligent Transfer Service        |     Windows 7/8/10/2008/2012/2016/2019      |
 | [CVE-2019-0808](.CVE-2019-0808)                |                Win32k Elevation of Privilege                 |               Windows 7/2008                |
