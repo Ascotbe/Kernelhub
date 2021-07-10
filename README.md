@@ -30,6 +30,8 @@ In the project, the lack of ordinary order documentation, if English is good, fr
 
 | SecurityBulletin                               |                         Description                          |               OperatingSystem               |
 | :--------------------------------------------- | :----------------------------------------------------------: | :-----------------------------------------: |
+| [CVE-2021-33739](./CVE-2021-33739)             |             Microsoft DWM Core Library Elevation             |              Windows 10/Server              |
+| [CVE-2021-26868](./CVE-2021-33739)             |             Windows Graphics Component Elevation             |    Windows 8.1/10/2012/2016/2019/Server     |
 | [CVE-2021-1732](./CVE-2021-1732)               |                        Windows Win32k                        |           Windows 10/2019/Server            |
 | [CVE-2021-1709](./TestFailure/CVE-2021-1709)   |                        Windows Win32k                        | Windows 7/8.1/10/2008/2012/2016/2019/Server |
 | [CVE-2020-17087](./TestFailure/CVE-2020-17087) |         Windows Kernel Local Elevation of Privilege          | Windows 7/8.1/10/2008/2012/2016/2019/Server |
