@@ -149,6 +149,8 @@ In the project, the lack of ordinary order documentation, if English is good, fr
   magnet:?xt=urn:btih:8E49569FDE852E4F3CCB3D13EFB296B6B02D82A6
   #Windows 10 1909 x64 
   ed2k://|file|cn_windows_10_business_editions_version_1909_x64_dvd_0ca83907.iso|5275090944|9BCD5FA6C8009E4D0260E4B23008BD47|/
+  #Windows 10 1607 x64 (Updated Jul 2016)
+  ed2k://|file|cn_windows_10_education_version_1607_updated_jul_2016_x64_dvd_9056220.iso|4150953984|AD0737D5F182082C37E6D1DB7CCDBB77|/
   ```
 
 - Linux compilation environment
