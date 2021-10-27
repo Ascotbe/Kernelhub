@@ -1,9 +1,11 @@
  <h1 align="center" >Welcome to Kernelhub</h1>
  <p align="center">
     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://img.shields.io/badge/Ascotbe-Kernelhub-green"></a>
+     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://visitor-badge.glitch.me/badge?page_id=https://github.com/Ascotbe/Kernelhub/README.md"></a>
     <a href="https://github.com/Ascotbe/Kernelhub"><img alt="Release" src="https://img.shields.io/badge/LICENSE-GPL-ff69b4"></a>
 	<a href="https://github.com/Ascotbe/Kernelhub/stargazers"><img alt="Release" src="https://img.shields.io/github/stars/ascotbe/Kernelhub.svg"></a>
 	<a href="https://github.com/Ascotbe/Medusa"><img alt="Release" src="https://img.shields.io/badge/scope-2000—2021-success"></a>
+     <a href="https://github.com/Ascotbe/Medusa"><img alt="Release" src="https://img.shields.io/github/repo-size/Ascotbe/Kernelhub"></a>
  </p>
 
 
@@ -50,6 +52,10 @@ In the project, the lack of ordinary order documentation, if English is good, fr
   magnet:?xt=urn:btih:8E49569FDE852E4F3CCB3D13EFB296B6B02D82A6
   #Windows 10 1909 x64 
   ed2k://|file|cn_windows_10_business_editions_version_1909_x64_dvd_0ca83907.iso|5275090944|9BCD5FA6C8009E4D0260E4B23008BD47|/
+  #Windows 10 1607 x64 (Updated Jul 2016)
+  ed2k://|file|cn_windows_10_multiple_editions_version_1607_updated_jul_2016_x64_dvd_9056935.iso|4347183104|35EA5DB0F3BB714F5CE0740FB89D82D1|/
+  #Windows 10 1903 x64
+  ed2k://|file|cn_windows_10_business_editions_version_1903_x64_dvd_e001dd2c.iso|4815527936|47D4C57E638DF8BF74C59261E2CE702D|/
   ```
 
 - Linux compilation environment
@@ -66,12 +72,17 @@ In the project, the lack of ordinary order documentation, if English is good, fr
 
   ```bash
   #(.NET download address)https://dotnet.microsoft.com/download/visual-studio-sdks?utm_source=getdotnetsdk&utm_medium=referral
-  VS2019（内置V142、V141、V120、V110、V100、V141_xp、V120_xp、V110_xp、MFC、.NET Framework 4.7.2）
+  VS2019（V142、V141、V120、V110、V100、V141_xp、V120_xp、V110_xp、MFC、.NET Framework 4.7.2）
   ```
 
 ### About the error
 
 Due to the large content of the project, it is inevitable that there will be some typos or missing CVE numbers. If you find an error, you still hope to submit Issues to help me maintain the project.
+
+> No test success number
+
+The following numbers are all CVEs that failed to pass the recurrence test after screening, with reasons for failure, and welcome to submit PR
+
 
 ### Disclaimer
 

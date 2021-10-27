@@ -10,6 +10,7 @@
 
 
 
+
 > 前言
 
 - 本项目是一个Windows提权相关的集合，除未通过测试EXP都有详细说明以及演示GIF图，如果项目中的代码有您的代码，本人未标注来源的请提交Issues
@@ -52,6 +53,10 @@
   magnet:?xt=urn:btih:8E49569FDE852E4F3CCB3D13EFB296B6B02D82A6
   #Windows 10 1909 x64 
   ed2k://|file|cn_windows_10_business_editions_version_1909_x64_dvd_0ca83907.iso|5275090944|9BCD5FA6C8009E4D0260E4B23008BD47|/
+  #Windows 10 1607 x64 (Updated Jul 2016)
+  ed2k://|file|cn_windows_10_multiple_editions_version_1607_updated_jul_2016_x64_dvd_9056935.iso|4347183104|35EA5DB0F3BB714F5CE0740FB89D82D1|/
+  #Windows 10 1903 x64
+  ed2k://|file|cn_windows_10_business_editions_version_1903_x64_dvd_e001dd2c.iso|4815527936|47D4C57E638DF8BF74C59261E2CE702D|/
   ```
 
 - Linux编译环境
