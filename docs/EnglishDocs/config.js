@@ -12,9 +12,6 @@ let config = {
                     title: "exploit script (successful test)",path: '/TestSuccess'
                 },
                 {
-                        path: '/EN/.idea', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/.idea/README_EN.md'
-                },
-                {
                         path: '/EN/CVE-2003-0352', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2003-0352/README_EN.md'
                 },
                 {

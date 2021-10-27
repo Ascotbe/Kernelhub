@@ -8,7 +8,7 @@ FailureList=[]
 def Config():
     CNBegin="""let config = {\n    title: 'Kernelhub',\n    home: 'Info.md',\n    repo: 'Ascotbe/Kernelhub',\n    nav: [\n        {\n            title: '简介', path: '/'\n        },\n        {\n            title: '目录导航',type: 'dropdown', items: [\n                {\n                    title: "有利用脚本(测试成功)",path: '/TestSuccess'\n                },"""
     End="""\n            ]\n        },\n    ],\n    tocVisibleDepth: 10,\n    plugins: []\n};"""
-    RejectList=['.DS_Store', '.git', '.gitignore','LICENSE', 'Patch', 'README.CN.md', 'README.md', 'TestFailure', 'docs', 'test.py']
+    RejectList=['.DS_Store', '.git','.idea', '.gitignore','LICENSE', 'Patch', 'README.CN.md', 'README.md', 'TestFailure', 'docs', 'DocumentGeneration.py']
     ENBegin="""let config = {\n    title: 'Kernelhub',\n    home: 'Info.md',\n    repo: 'Ascotbe/Kernelhub',\n    nav: [\n        {\n            title: 'Introduction', path: '/'\n        },\n        {\n            title: 'DirectoryNavigation',type: 'dropdown', items: [\n                {\n                    title: "exploit script (successful test)",path: '/TestSuccess'\n                },"""
     #处理成功的编号
     for i in os.listdir(Path):
@@ -51,10 +51,10 @@ def Markdown():
         date = re.findall(r'(?<=\[)([\w\W]+)(?=\])', x)[0]
         if date in SuccessList:
             CNMarkdownSuccessList.append(re.sub(r'(?<=\()([\w\W]+)(?=\))', "http://kernelhub.ascotbe.com/Docs/#/CN/"+date, x))
-            ENMarkdownSuccessList.append(re.sub(r'(?<=\()([\w\W]+)(?=\))', "http://kernelhub.ascotbe.com/Docs/#/EN/"+date, x))
+            ENMarkdownSuccessList.append(re.sub(r'(?<=\()([\w\W]+)(?=\))', "http://kernelhub.ascotbe.com/EnglishDocs/#/EN/"+date, x))
         if date in FailureList:
             CNMarkdownFailureList.append(re.sub(r'(?<=\()([\w\W]+)(?=\))', "http://kernelhub.ascotbe.com/Docs/#/CN/"+date, x))
-            ENMarkdownFailureList.append(re.sub(r'(?<=\()([\w\W]+)(?=\))', "http://kernelhub.ascotbe.com/Docs/#/EN/"+date, x))
+            ENMarkdownFailureList.append(re.sub(r'(?<=\()([\w\W]+)(?=\))', "http://kernelhub.ascotbe.com/EnglishDocs/#/EN/"+date, x))
     CNMarkdownSuccessDate=CVEList[0]+"\n"+CVEList[1]+"\n"
     CNMarkdownFailureDate=CVEList[0]+"\n"+CVEList[1]+"\n"
     ENMarkdownSuccessDate=CVEList[0]+"\n"+CVEList[1]+"\n"
@@ -63,10 +63,10 @@ def Markdown():
         CNMarkdownSuccessDate+=x1+"\n"
     for x2 in CNMarkdownFailureList:
         CNMarkdownFailureDate+=x2+"\n"
-    for x1 in ENMarkdownSuccessList:
-        ENMarkdownSuccessDate+=x1+"\n"
-    for x2 in ENMarkdownFailureList:
-        ENMarkdownFailureDate+=x2+"\n"
+    for x3 in ENMarkdownSuccessList:
+        ENMarkdownSuccessDate+=x3+"\n"
+    for x4 in ENMarkdownFailureList:
+        ENMarkdownFailureDate+=x4+"\n"
 
     CNTestSuccess=open(Path+"/docs/Docs/TestSuccess.md","w+")
     CNTestSuccess.write(CNMarkdownSuccessDate)

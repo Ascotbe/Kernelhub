@@ -12,9 +12,6 @@ let config = {
                     title: "有利用脚本(测试成功)",path: '/TestSuccess'
                 },
                 {
-                        path: '/CN/.idea', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/.idea/README.md'
-                },
-                {
                         path: '/CN/CVE-2003-0352', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2003-0352/README.md'
                 },
                 {
