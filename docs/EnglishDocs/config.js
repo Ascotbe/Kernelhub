@@ -12,6 +12,9 @@ let config = {
                     title: "exploit script (successful test)",path: '/TestSuccess'
                 },
                 {
+                        path: '/EN/.github', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/.github/README_EN.md'
+                },
+                {
                         path: '/EN/CVE-2003-0352', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2003-0352/README_EN.md'
                 },
                 {
@@ -211,6 +214,12 @@ let config = {
                 },
                 {
                         path: '/EN/CVE-2021-40449', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2021-40449/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2021-42278', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2021-42278/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2021-42287', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2021-42287/README_EN.md'
                 },
                 {
                         title: 'exploit script (test failure)', path: '/TestFailure'

@@ -12,6 +12,9 @@ let config = {
                     title: "有利用脚本(测试成功)",path: '/TestSuccess'
                 },
                 {
+                        path: '/CN/.github', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/.github/README.md'
+                },
+                {
                         path: '/CN/CVE-2003-0352', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2003-0352/README.md'
                 },
                 {
@@ -211,6 +214,12 @@ let config = {
                 },
                 {
                         path: '/CN/CVE-2021-40449', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2021-40449/README.md'
+                },
+                {
+                        path: '/CN/CVE-2021-42278', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2021-42278/README.md'
+                },
+                {
+                        path: '/CN/CVE-2021-42287', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2021-42287/README.md'
                 },
                 {
                         title: '有利用脚本(测试未成功)', path: '/TestFailure'
