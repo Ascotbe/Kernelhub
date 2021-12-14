@@ -1,0 +1,64 @@
+name: 💚 Bug 报告
+description: 机械永生,刻不容缓!
+labels: ['Kernelhub bug']
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请确保已阅读 [文档](http://kernelhub.ascotbe.com) 内相关部分，并按照模版提供信息，否则 issue 将被立即关闭。谢谢大家的配合，祝大家有美好的一天~
+
+  - type: checkboxes
+    id: operating_systems
+    attributes:
+      label: 当前使用的操作系统
+      description: 从下面选择一个
+      options:
+        - label: Windows
+        - label: Linux
+
+  - type: input
+    id: description_error
+    attributes:
+      label: 描述错误
+      description: 清楚简洁地说明错误是什么
+      placeholder: 由于....
+    validations:
+      required: true
+
+  - type: textarea
+    id: step
+    attributes:
+      label: 重现步骤
+      description: 如何重现所述问题步骤，并贴上相关的数据
+      placeholder: |
+        1.
+        2.
+        3.
+        ...
+      render: bash
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: 如果觉得文字无法描述清楚，可以贴上您相关的运行截图，图片请不要使用外链
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 相关环境说明
+      description: 详细的系统版本，内核等信息等信息，
+      placeholder: ｜
+        system x.x.x
+        ...
+    validations:
+      required: true
+
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 这不是重复的 issue
+      options:
+        - label: 我已经搜索了[现有 issue](https://github.com/ascotbe/Kernelhub/issues)，以确保该错误尚未被报告。
+          required: true
