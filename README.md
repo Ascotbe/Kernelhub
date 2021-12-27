@@ -224,7 +224,7 @@ Before using this project, please **read carefully and fully understand the cont
 - [CVE Details](https://www.cvedetails.com/)
 
 
-### Reference project & website
+### Stats
 
 ![Alt](https://repobeats.axiom.co/api/embed/2f17ae8019f36294dafafd5cf9ffe9b0e62a21ae.svg "Repobeats analytics image")
 
