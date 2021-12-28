@@ -227,3 +227,6 @@ http://kernelhub.ascotbe.com
 - [CVE](https://cve.mitre.org)
 - [CVE Details](https://www.cvedetails.com/)
 
+### Stats
+
+![Alt](https://repobeats.axiom.co/api/embed/2f17ae8019f36294dafafd5cf9ffe9b0e62a21ae.svg "Repobeats analytics image")
