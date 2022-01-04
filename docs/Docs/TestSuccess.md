@@ -1,5 +1,6 @@
 | SecurityBulletin                               |                         Description                          |                   OperatingSystem                   |
 | :--------------------------------------------- | :----------------------------------------------------------: | :-------------------------------------------------: |
+| [CVE-2021-34486](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2021-34486)             |               Windows Event Tracing Elevation                |               Windows 10/2019/Server                |
 | [CVE-2021-42287](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2021-42287)             |                          Windows AD                          |       Windows 2008/2012/2016/2019/2022/Server       |
 | [CVE-2021-42278](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2021-42278)             |                          Windows AD                          |       Windows 2008/2012/2016/2019/2022/Server       |
 | [CVE-2021-40449](http://kernelhub.ascotbe.com/Docs/#/CN/CVE-2021-40449)             |                        Windows Win32k                        | Windows 7/8.1/10/11/2008/2012/2016/2019/2022/Server |

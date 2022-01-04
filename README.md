@@ -17,12 +17,6 @@
 - This project is prioritized by the kernel-related rights vulnerability. If there is a remote command execution in the month, only when the Internet is expuple, it will be updated.
 - The reliability of the code is self-verified, and the illness items you have caused are not responsible.
 
-> Assist
-
-In the project, the lack of ordinary order documentation, if English is good, friends welcome to submit PR
-
-
-
 **[中文文档](./README.CN.md) | EnglishDocumentation**
 
 > Numbered list
@@ -30,6 +24,7 @@ In the project, the lack of ordinary order documentation, if English is good, fr
 
 | SecurityBulletin                               |                         Description                          |                   OperatingSystem                   |
 | :--------------------------------------------- | :----------------------------------------------------------: | :-------------------------------------------------: |
+| [CVE-2021-34486](./CVE-2021-34486)             |               Windows Event Tracing Elevation                |               Windows 10/2019/Server                |
 | [CVE-2021-42287](./CVE-2021-42287)             |                          Windows AD                          |       Windows 2008/2012/2016/2019/2022/Server       |
 | [CVE-2021-42278](./CVE-2021-42278)             |                          Windows AD                          |       Windows 2008/2012/2016/2019/2022/Server       |
 | [CVE-2021-40449](./CVE-2021-40449)             |                        Windows Win32k                        | Windows 7/8.1/10/11/2008/2012/2016/2019/2022/Server |
