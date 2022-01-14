@@ -15,6 +15,9 @@ let config = {
                         path: '/CN/.github', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/.github/README.md'
                 },
                 {
+                        path: '/CN/CVE-2000-0979', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2000-0979/README.md'
+                },
+                {
                         path: '/CN/CVE-2003-0352', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2003-0352/README.md'
                 },
                 {
@@ -228,6 +231,9 @@ let config = {
                         title: '有利用脚本(测试未成功)', path: '/TestFailure'
                 },
                 {
+                        path: '/CN/CVE-2000-0979', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2000-0979/README.md'
+                },
+                {
                         path: '/CN/CVE-2005-1983', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2005-1983/README.md'
                 },
                 {
@@ -243,7 +249,13 @@ let config = {
                         path: '/CN/CVE-2011-0045', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2011-0045/README.md'
                 },
                 {
+                        path: '/CN/CVE-2011-1237', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2011-1237/README.md'
+                },
+                {
                         path: '/CN/CVE-2013-0008', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2013-0008/README.md'
+                },
+                {
+                        path: '/CN/CVE-2013-1300', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2013-1300/README.md'
                 },
                 {
                         path: '/CN/CVE-2013-5065', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2013-5065/README.md'
@@ -265,6 +277,21 @@ let config = {
                 },
                 {
                         path: '/CN/CVE-2016-3309', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2016-3309/README.md'
+                },
+                {
+                        path: '/CN/CVE-2017-0005', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2017-0005/README.md'
+                },
+                {
+                        path: '/CN/CVE-2017-0100', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2017-0100/README.md'
+                },
+                {
+                        path: '/CN/CVE-2017-0263', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2017-0263/README.md'
+                },
+                {
+                        path: '/CN/CVE-2017-11783', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2017-11783/README.md'
+                },
+                {
+                        path: '/CN/CVE-2017-8465', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2017-8465/README.md'
                 },
                 {
                         path: '/CN/CVE-2018-0743', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2018-0743/README.md'
