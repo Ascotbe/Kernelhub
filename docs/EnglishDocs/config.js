@@ -297,13 +297,31 @@ let config = {
                         path: '/EN/CVE-2018-0743', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2018-0743/README_EN.md'
                 },
                 {
+                        path: '/EN/CVE-2018-0824', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2018-0824/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2018-0886', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2018-0886/README_EN.md'
+                },
+                {
                         path: '/EN/CVE-2018-1038', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2018-1038/README_EN.md'
                 },
                 {
                         path: '/EN/CVE-2018-8440', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2018-8440/README_EN.md'
                 },
                 {
+                        path: '/EN/CVE-2019-0708', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2019-0708/README_EN.md'
+                },
+                {
                         path: '/EN/CVE-2019-0859', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2019-0859/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2019-0863', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2019-0863/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2019-0986', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2019-0986/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2019-1040', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2019-1040/README_EN.md'
                 },
                 {
                         path: '/EN/CVE-2020-17087', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2020-17087/README_EN.md'
