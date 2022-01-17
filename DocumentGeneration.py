@@ -84,8 +84,31 @@ def Markdown():
 
 
 
-    
+def HomeMarkdown():
+    EN_File_R = open(Path + "/README.md", "r").read()
+    CN_File_R = open(Path + "/README.CN.md", "r").read()
+    Header="\n\n| SecurityBulletin |   |   |   |\n| ---------------- |---------------- | ---------------- | ---------------- |\n"
+    CVE=""
+    x=0
+    for i in sorted(FailureList):
+        x+=1
+        CVE += "| " + str(i)
+        if x>4:
+            Header+=CVE+"|\n"
+            CVE=""
+            x=0
+    if x!=0:
+        Header+=str(CVE)+"   |\n"
+    EN_Date = re.sub(r'(?<=and welcome to submit PR)([\w\W]+)(?=### Disclaimer)', Header+"\n\n",EN_File_R)
+    CN_Date = re.sub(r'(?<=欢迎提交PR)([\w\W]+)(?=### 免责声明)', Header+"\n\n",CN_File_R)
+    EN_File_W = open(Path + "/README.md", "w+")
+    CN_File_W = open(Path + "/README.CN.md", "w+")
+    EN_File_W.write(EN_Date)
+    CN_File_W.write(CN_Date)
+
+
 
 if __name__ == '__main__':
     Config()
     Markdown()
+    HomeMarkdown()

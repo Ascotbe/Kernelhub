@@ -178,28 +178,16 @@ Due to the large content of the project, it is inevitable that there will be som
 
 The following numbers are all CVEs that failed to pass the recurrence test after screening, with reasons for failure, and welcome to submit PR
 
-| SecurityBulletin | Remarks                                                      |
-| ---------------- | ------------------------------------------------------------ |
-| CVE-2021-1709    | January 2021 patch, routine update                           |
-| CVE-2020-17087   | Patch in November 2020, only proof of concept, no exploit code |
-| CVE-2015-0002    | Source code failed to test                                   |
-| CVE-2015-0062    | Source code and EXP failed to test successfully              |
-| CVE-2015-1725    | Unknown compilation method with source code                  |
-| CVE-2016-3309    | Source code and EXP failed to test successfully              |
-| CVE-2014-6321    | Only winshock_test.sh file                                   |
-| CVE-2019-0859    | Need to install windows7 sp1 x64 Need to update the March 2019 patch |
-| CVE-2018-8440    | unknown                                                      |
-| CVE-2018-1038    | Unknown compilation method with source code                  |
-| CVE-2013-5065    | Lack of NDProxy environment                                  |
-| CVE-2013-0008    | unknown                                                      |
-| CVE-2009-0079    | Failed to use                                                |
-| CVE-2011-0045    | Could not find available EXP                                 |
-| CVE-2010-2554    | Could not find available EXP                                 |
-| CVE-2005-1983    | Source code and EXP failed to test successfully              |
-| CVE-2012-0002    | Blue screen vulnerabilities have no practical value          |
-| CVE-2010-0020    | Could not find available EXP                                 |
-| CVE-2014-6324    | unknown                                                      |
-| CVE-2018-0743    | Could not find available EXP                                 |
+| SecurityBulletin |   |   |   |
+| ---------------- |---------------- | ---------------- | ---------------- |
+| CVE-2000-0979| CVE-2005-1983| CVE-2009-0079| CVE-2010-0020| CVE-2010-2554|
+| CVE-2011-0045| CVE-2011-1237| CVE-2013-0008| CVE-2013-1300| CVE-2013-5065|
+| CVE-2014-6321| CVE-2014-6324| CVE-2015-0002| CVE-2015-0062| CVE-2015-1725|
+| CVE-2016-3309| CVE-2017-0005| CVE-2017-0100| CVE-2017-0263| CVE-2017-11783|
+| CVE-2017-8465| CVE-2018-0743| CVE-2018-0824| CVE-2018-0886| CVE-2018-1038|
+| CVE-2018-8440| CVE-2019-0708| CVE-2019-0859| CVE-2019-0863| CVE-2019-0986|
+| CVE-2019-1040| CVE-2020-17087| CVE-2021-1709   |
+
 
 ### Disclaimer
 
