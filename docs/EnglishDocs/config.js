@@ -324,10 +324,49 @@ let config = {
                         path: '/EN/CVE-2019-1040', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2019-1040/README_EN.md'
                 },
                 {
+                        path: '/EN/CVE-2019-1215', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2019-1215/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2019-1253', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2019-1253/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2019-1322', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2019-1322/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2019-1422', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2019-1422/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2020-0624', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2020-0624/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2020-0814', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2020-0814/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2020-1350', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2020-1350/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2020-1362', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2020-1362/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2020-17057', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2020-17057/README_EN.md'
+                },
+                {
                         path: '/EN/CVE-2020-17087', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2020-17087/README_EN.md'
                 },
                 {
                         path: '/EN/CVE-2021-1709', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2021-1709/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2021-21551', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2021-21551/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2021-34527', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2021-34527/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2021-43224', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2021-43224/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2021-43883', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2021-43883/README_EN.md'
                 },
             ]
         },
