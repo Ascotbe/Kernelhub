@@ -15,9 +15,6 @@ let config = {
                         path: '/EN/.github', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/.github/README_EN.md'
                 },
                 {
-                        path: '/EN/CVE-2000-0979', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2000-0979/README_EN.md'
-                },
-                {
                         path: '/EN/CVE-2003-0352', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2003-0352/README_EN.md'
                 },
                 {
