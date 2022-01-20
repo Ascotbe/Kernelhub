@@ -38,6 +38,7 @@ http://kernelhub.ascotbe.com
 | [CVE-2021-36934](./CVE-2021-36934)             |                      Windows Elevation                       |                     Windows 10                      |
 | [CVE-2021-34527](./TestFailure/CVE-2021-34527) |         Windows Print Spooler Remote Code Execution          |   Windows 7/8/10/2008/2012/2016/2019/2022/Server    |
 | [CVE-2021-33739](./CVE-2021-33739)             |             Microsoft DWM Core Library Elevation             |                  Windows 10/Server                  |
+| [CVE-2021-31166](./TestFailure/CVE-2021-31166) |                     HTTP Protocol Stack                      |                  Windows 10/Server                  |
 | [CVE-2021-26868](./CVE-2021-33739)             |             Windows Graphics Component Elevation             |        Windows 8.1/10/2012/2016/2019/Server         |
 | [CVE-2021-21551](./TestFailure/CVE-2021-21551) |                             None                             |                        None                         |
 | [CVE-2021-1732](./CVE-2021-1732)               |                        Windows Win32k                        |               Windows 10/2019/Server                |
@@ -79,7 +80,6 @@ http://kernelhub.ascotbe.com
 | [CVE-2018-8440](./TestFailure/CVE-2018-8440)   |                    Windows ALPC Elevation                    |            Windows 7/8/10/2008/2012/2016            |
 | [CVE-2018-8120](./CVE-2018-8120)               |                       Win32k Elevation                       |                   Windows 7/2008                    |
 | [CVE-2018-1038](./TestFailure/CVE-2018-1038)   |                   Windows Kernel Elevation                   |                   Windows 7/2008                    |
-| [CVE-2018-0743](./TestFailure/CVE-2018-0743)   |            Windows Subsystem for Linux Elevation             |                   Windows 10/2016                   |
 | [CVE-2018-0833](./CVE-2018-0833)               |       SMBv3 Null Pointer Dereference Denial of Service       |                   Windows 8/2012                    |
 | [CVE-2018-0886](./TestFailure/CVE-2018-0886)   |                CredSSP Remote Code Execution                 |      Windows 7/8/10/2008/2012/2016/2019/Server      |
 | [CVE-2018-0824](./TestFailure/CVE-2018-0824)   |            COM for Windows Remote Code Execution             |        Windows 7/8/10/2008/2012/2016/Server         |
@@ -214,11 +214,11 @@ http://kernelhub.ascotbe.com
 | CVE-2011-0045| CVE-2011-1237| CVE-2013-0008| CVE-2013-1300| CVE-2013-5065|
 | CVE-2014-6321| CVE-2014-6324| CVE-2015-0002| CVE-2015-0062| CVE-2015-1725|
 | CVE-2016-3309| CVE-2017-0005| CVE-2017-0100| CVE-2017-0263| CVE-2017-11783|
-| CVE-2017-8465| CVE-2018-0743| CVE-2018-0824| CVE-2018-0886| CVE-2018-1038|
-| CVE-2018-8440| CVE-2019-0708| CVE-2019-0859| CVE-2019-0863| CVE-2019-0986|
-| CVE-2019-1040| CVE-2019-1215| CVE-2019-1253| CVE-2019-1322| CVE-2019-1422|
-| CVE-2020-0624| CVE-2020-0814| CVE-2020-1350| CVE-2020-1362| CVE-2020-17057|
-| CVE-2020-17087| CVE-2021-1709| CVE-2021-21551| CVE-2021-34527| CVE-2021-43224|
+| CVE-2017-8465| CVE-2018-0824| CVE-2018-0886| CVE-2018-1038| CVE-2018-8440|
+| CVE-2019-0708| CVE-2019-0859| CVE-2019-0863| CVE-2019-0986| CVE-2019-1040|
+| CVE-2019-1215| CVE-2019-1253| CVE-2019-1322| CVE-2019-1422| CVE-2020-0624|
+| CVE-2020-0814| CVE-2020-1350| CVE-2020-1362| CVE-2020-17057| CVE-2020-17087|
+| CVE-2021-1709| CVE-2021-21551| CVE-2021-31166| CVE-2021-34527| CVE-2021-43224|
 | CVE-2021-43883   |
 
 

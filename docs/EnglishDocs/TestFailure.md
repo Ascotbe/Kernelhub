@@ -2,6 +2,7 @@
 | :--------------------------------------------- | :----------------------------------------------------------: | :-------------------------------------------------: |
 | [CVE-2021-43224](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2021-43224) |                   Windows Common Log File                    |  Windows 7/8/10/11/2008/2012/2016/2019/2022/Server  |
 | [CVE-2021-34527](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2021-34527) |         Windows Print Spooler Remote Code Execution          |   Windows 7/8/10/2008/2012/2016/2019/2022/Server    |
+| [CVE-2021-31166](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2021-31166) |                     HTTP Protocol Stack                      |                  Windows 10/Server                  |
 | [CVE-2021-21551](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2021-21551) |                             None                             |                        None                         |
 | [CVE-2021-1709](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2021-1709)   |                        Windows Win32k                        |     Windows 7/8.1/10/2008/2012/2016/2019/Server     |
 | [CVE-2020-17087](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2020-17087) |                Windows Kernel Local Elevation                |     Windows 7/8.1/10/2008/2012/2016/2019/Server     |
@@ -21,7 +22,6 @@
 | [CVE-2019-0708](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2019-0708)   |                   Remote Desktop Services                    |                   Windows 7/2008                    |
 | [CVE-2018-8440](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2018-8440)   |                    Windows ALPC Elevation                    |            Windows 7/8/10/2008/2012/2016            |
 | [CVE-2018-1038](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2018-1038)   |                   Windows Kernel Elevation                   |                   Windows 7/2008                    |
-| [CVE-2018-0743](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2018-0743)   |            Windows Subsystem for Linux Elevation             |                   Windows 10/2016                   |
 | [CVE-2018-0886](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2018-0886)   |                CredSSP Remote Code Execution                 |      Windows 7/8/10/2008/2012/2016/2019/Server      |
 | [CVE-2018-0824](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2018-0824)   |            COM for Windows Remote Code Execution             |        Windows 7/8/10/2008/2012/2016/Server         |
 | [CVE-2017-11783](http://kernelhub.ascotbe.com/EnglishDocs/#/EN/CVE-2017-11783) |                      Windows Elevation                       |               Windows 8/10/2012/2016                |

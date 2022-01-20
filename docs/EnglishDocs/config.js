@@ -291,9 +291,6 @@ let config = {
                         path: '/EN/CVE-2017-8465', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2017-8465/README_EN.md'
                 },
                 {
-                        path: '/EN/CVE-2018-0743', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2018-0743/README_EN.md'
-                },
-                {
                         path: '/EN/CVE-2018-0824', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2018-0824/README_EN.md'
                 },
                 {
@@ -355,6 +352,9 @@ let config = {
                 },
                 {
                         path: '/EN/CVE-2021-21551', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2021-21551/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2021-31166', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2021-31166/README_EN.md'
                 },
                 {
                         path: '/EN/CVE-2021-34527', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2021-34527/README_EN.md'
