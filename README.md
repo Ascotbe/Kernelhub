@@ -24,6 +24,7 @@
 
 | SecurityBulletin                               |                         Description                          |                   OperatingSystem                   |
 | :--------------------------------------------- | :----------------------------------------------------------: | :-------------------------------------------------: |
+| [CVE-2022-21882](./CVE-2022-21882)             |                        Windows Win32k                        |           Windows 10/11/2019/2022/Server            |
 | [CVE-2021-34486](./CVE-2021-34486)             |               Windows Event Tracing Elevation                |               Windows 10/2019/Server                |
 | [CVE-2021-42287](./CVE-2021-42287)             |                          Windows AD                          |       Windows 2008/2012/2016/2019/2022/Server       |
 | [CVE-2021-43224](./TestFailure/CVE-2021-43224) |                   Windows Common Log File                    |  Windows 7/8/10/11/2008/2012/2016/2019/2022/Server  |
@@ -177,6 +178,8 @@
   ed2k://|file|cn_windows_10_multiple_editions_version_1607_updated_jul_2016_x64_dvd_9056935.iso|4347183104|35EA5DB0F3BB714F5CE0740FB89D82D1|/
   #Windows 10 1903 x64
   ed2k://|file|cn_windows_10_business_editions_version_1903_x64_dvd_e001dd2c.iso|4815527936|47D4C57E638DF8BF74C59261E2CE702D|/
+  #Windows 10 21H2 x64 (2021-12-21 release version)
+  magnet:?xt=urn:btih:a6594f14273fe02ae59a6d6848a47e55903d919b
   ```
 
 - Linux compilation environment

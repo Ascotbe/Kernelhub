@@ -225,6 +225,9 @@ let config = {
                         path: '/EN/CVE-2021-42287', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2021-42287/README_EN.md'
                 },
                 {
+                        path: '/EN/CVE-2022-21882', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2022-21882/README_EN.md'
+                },
+                {
                         title: 'exploit script (test failure)', path: '/TestFailure'
                 },
                 {

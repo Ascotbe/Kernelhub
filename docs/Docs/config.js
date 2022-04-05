@@ -225,6 +225,9 @@ let config = {
                         path: '/CN/CVE-2021-42287', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2021-42287/README.md'
                 },
                 {
+                        path: '/CN/CVE-2022-21882', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2022-21882/README.md'
+                },
+                {
                         title: '有利用脚本(测试未成功)', path: '/TestFailure'
                 },
                 {
