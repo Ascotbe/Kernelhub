@@ -228,6 +228,9 @@ let config = {
                         path: '/EN/CVE-2022-21882', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/CVE-2022-21882/README_EN.md'
                 },
                 {
+                        path: '/EN/StencilPlate', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/StencilPlate/README_EN.md'
+                },
+                {
                         title: 'exploit script (test failure)', path: '/TestFailure'
                 },
                 {
@@ -367,6 +370,18 @@ let config = {
                 },
                 {
                         path: '/EN/CVE-2021-43883', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2021-43883/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2022-26937', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2022-26937/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2022-30206', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2022-30206/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2022-33679', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2022-33679/README_EN.md'
+                },
+                {
+                        path: '/EN/CVE-2022-34718', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/CVE-2022-34718/README_EN.md'
                 },
             ]
         },
