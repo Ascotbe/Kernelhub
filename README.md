@@ -16,6 +16,8 @@
 - If there is an omission of the omission of CVE vulnerabilities, please join your issues and bring your use of code.
 - Project code is prohibited from testing in a real environment! The reliability of the code is self-verified, and the cause of the fault you have is not responsible.
 
+**[中文文档](./README.CN.md) | EnglishDocumentation**
+
 ### Online preview
 
 ```
