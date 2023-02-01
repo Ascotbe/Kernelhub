@@ -1,5 +1,5 @@
 
-### online preview
+### Online preview
 
 ```
 http://kernelhub.ascotbe.com/Windows
@@ -12,6 +12,10 @@ http://kernelhub.ascotbe.com/Windows
 
 | SecurityBulletin                               |                         Description                          |                   OperatingSystem                   |
 | :--------------------------------------------- | :----------------------------------------------------------: | :-------------------------------------------------: |
+| [CVE-2022-34718](./TestFailure/CVE-2022-34718) |             Windows TCP/IP Remote Code Execution             |    Windows 7/8.1/10/11/2008/2012/2016/2019/2022     |
+| [CVE-2022-33679](./TestFailure/CVE-2022-33679) |           Windows Kerberos Elevation of Privilege            |          Windows 2008/2012/2016/2019/2022           |
+| [CVE-2022-30206](./TestFailure/CVE-2022-30206) |         Windows Print Spooler Elevation of Privilege         | Windows 7/8.1/10/11/2008/2012/2016/2019/2022/Server |
+| [CVE-2022-26937](./TestFailure/CVE-2022-26937) |      Windows Network File System Remote Code Execution       |       Windows 2008/2012/2016/2019/2022/Server       |
 | [CVE-2022-21882](./CVE-2022-21882)             |                        Windows Win32k                        |           Windows 10/11/2019/2022/Server            |
 | [CVE-2021-34486](./CVE-2021-34486)             |               Windows Event Tracing Elevation                |               Windows 10/2019/Server                |
 | [CVE-2021-42287](./CVE-2021-42287)             |                          Windows AD                          |       Windows 2008/2012/2016/2019/2022/Server       |
@@ -127,8 +131,6 @@ http://kernelhub.ascotbe.com/Windows
 | [CVE-2005-1983](./TestFailure/CVE-2005-1983)   |                         PnP Service                          |                   Windows 2000/Xp                   |
 | [CVE-2003-0352](./CVE-2003-0352)               |               Buffer Overrun In RPC Interface                |               Windows 2000/2003/Xp/Nt               |
 | [CVE-2000-0979](./TestFailure/CVE-2000-0979)   |                     Share Level Password                     |                Windows 95/98/98se/Me                |
-
-
 
 
 ### Required environment
