@@ -15,17 +15,17 @@ def Config():
         if i not in RejectList:
             SuccessList.append(i)
     for x in sorted(SuccessList):
-        CNBegin+="""\n                {\n                        path: '/CN/"""+x+"""', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/"""+x+"""/README.md'\n                },"""
-        ENBegin+="""\n                {\n                        path: '/EN/"""+x+"""', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/"""+x+"""/README_EN.md'\n                },"""
+        CNBegin+="""\n                {\n                        path: '/CN/"""+x+"""', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/Windows/"""+x+"""/README.md'\n                },"""
+        ENBegin+="""\n                {\n                        path: '/EN/"""+x+"""', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/Windows/"""+x+"""/README_EN.md'\n                },"""
     #处理失败的编号
     CNBegin+="""\n                {\n                        title: '有利用脚本(测试未成功)', path: '/TestFailure'\n                },"""
     ENBegin+="""\n                {\n                        title: 'exploit script (test failure)', path: '/TestFailure'\n                },"""
-    for i in os.listdir(Path+"/TestFailure"):
+    for i in os.listdir(Path+"/Windows/TestFailure"):
         if i not in RejectList:
             FailureList.append(i)
     for xx in sorted(FailureList):
-        CNBegin+="""\n                {\n                        path: '/CN/"""+xx+"""', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/"""+xx+"""/README.md'\n                },"""
-        ENBegin+="""\n                {\n                        path: '/EN/"""+xx+"""', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/TestFailure/"""+xx+"""/README_EN.md'\n                },"""
+        CNBegin+="""\n                {\n                        path: '/CN/"""+xx+"""', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/Windows/TestFailure/"""+xx+"""/README.md'\n                },"""
+        ENBegin+="""\n                {\n                        path: '/EN/"""+xx+"""', source: 'https://raw.githubusercontent.com/Ascotbe/Kernelhub/master/Windows/TestFailure/"""+xx+"""/README_EN.md'\n                },"""
     CNBegin+=End
     ENBegin+=End
     cn_file=open(Path+"/docs/Docs/config.js","w+")
@@ -42,7 +42,7 @@ def Markdown():
     CNMarkdownFailureList=[]
     ENMarkdownSuccessList=[]
     ENMarkdownFailureList=[]
-    file=open(Path+"/README.md","r").read()
+    file=open(Path+"/Windows/README.md","r").read()
     date = re.findall(r'(?<=> Numbered list)([\w\W]+)(?=### Required environment)', file)[0].split("\n")
     for i in date:
         if i != "":
@@ -85,8 +85,8 @@ def Markdown():
 
 
 def HomeMarkdown():
-    EN_File_R = open(Path + "/README.md", "r").read()
-    CN_File_R = open(Path + "/README.CN.md", "r").read()
+    EN_File_R = open(Path + "/Windows/README.md", "r").read()
+    CN_File_R = open(Path + "/Windows/README.CN.md", "r").read()
     Header="\n\n| SecurityBulletin |   |   |   |\n| ---------------- |---------------- | ---------------- | ---------------- |\n"
     CVE=""
     x=0
