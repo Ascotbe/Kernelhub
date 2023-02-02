@@ -43,6 +43,10 @@ def WindowsConfig():
 
 
 def WindowsMarkdown():
+    """
+    从Windows目录中提取README内容中的《编号列表》内容进行拆分，判断那些是测试过的那些是没测试过的
+    把他们分成两个文件存放，然后再区分下语言
+    """
     common_vulnerabilities_and_exposures_list=[]
     chinese_success_list=[]
     chinese_failure_list=[]
@@ -50,7 +54,9 @@ def WindowsMarkdown():
     english_failure_list=[]
     #打开Windows目录下面的文件读取内容
     file=open(Path+"/Windows/README.md","r").read()
+    #提取《编号列表》的内容
     date = re.findall(r'(?<=> Numbered list)([\w\W]+)(?=### Required environment)', file)[0].split("\n")
+    #进行处理拼接
     for i in date:
         if i != "":
             common_vulnerabilities_and_exposures_list.append(i)
@@ -74,7 +80,7 @@ def WindowsMarkdown():
         english_success_date+=x3+"\n"
     for x4 in english_failure_list:
         english_failure_date+=x4+"\n"
-
+    #写入文件中
     chinese_success_file=open(Path+"/docs/Windows/Docs/TestSuccess.md","w+")
     chinese_success_file.write(chinese_success_date)
     chinese_success_file.close()
@@ -87,35 +93,31 @@ def WindowsMarkdown():
     english_failure_file=open(Path+"/docs/Windows/EnglishDocs/TestFailure.md","w+")
     english_failure_file.write(english_failure_date)
     english_failure_file.close()
-    
-
-
-
-def HomeMarkdown():
-    EN_File_R = open(Path + "/Windows/README.md", "r").read()
-    CN_File_R = open(Path + "/Windows/README.CN.md", "r").read()
-    Header="\n\n| SecurityBulletin |   |   |   |\n| ---------------- |---------------- | ---------------- | ---------------- |\n"
-    CVE=""
-    x=0
+    """
+    处理Windows目录下面readme文件，没有测试成功的编号进行更新
+    """
+    read_readme_english_file_data = open(Path + "/Windows/README.md", "r").read()
+    read_readme_chinese_file_data = open(Path + "/Windows/README.CN.md", "r").read()
+    header="\n\n| SecurityBulletin |   |   |   |\n| ---------------- |---------------- | ---------------- | ---------------- |\n"
+    common_vulnerabilities_and_exposures=""
+    count=0
     for i in sorted(window_failure_list):
-        x+=1
-        CVE += "| " + str(i)
-        if x>4:
-            Header+=CVE+"|\n"
-            CVE=""
-            x=0
-    if x!=0:
-        Header+=str(CVE)+"   |\n"
-    EN_Date = re.sub(r'(?<=and welcome to submit PR)([\w\W]+)(?=### Disclaimer)', Header+"\n\n",EN_File_R)
-    CN_Date = re.sub(r'(?<=欢迎提交PR)([\w\W]+)(?=### 免责声明)', Header+"\n\n",CN_File_R)
-    EN_File_W = open(Path + "/Windows/README.md", "w+")
-    CN_File_W = open(Path + "/Windows/README.CN.md", "w+")
-    EN_File_W.write(EN_Date)
-    CN_File_W.write(CN_Date)
+        count+=1
+        common_vulnerabilities_and_exposures += "| " + str(i)
+        if count>4:
+            header+=common_vulnerabilities_and_exposures+"|\n"
+            common_vulnerabilities_and_exposures=""
+            count=0
+    if count!=0:
+        header+=str(common_vulnerabilities_and_exposures)+"   |\n"
+    #对内容进行替换
+    tmp_english = re.sub(r'(?<=and welcome to submit PR)([\w\W]+)(?=### Disclaimer)', header+"\n\n",read_readme_english_file_data)
+    tmp_chinese = re.sub(r'(?<=欢迎提交PR)([\w\W]+)(?=### 免责声明)', header+"\n\n",read_readme_chinese_file_data)
+    open(Path + "/Windows/README.md", "w+").write(tmp_english)
+    open(Path + "/Windows/README.CN.md", "w+").write(tmp_chinese)
 
 
 
 if __name__ == '__main__':
     WindowsConfig()
     WindowsMarkdown()
-    # HomeMarkdown()

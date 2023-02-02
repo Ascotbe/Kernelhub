@@ -21,14 +21,14 @@
 ### Online preview
 
 ```
-http://kernelhub.ascotbe.com
+http://kernelhub.ascotbe.com（重写中
 ```
 
 ### Vulnerability
 
-- [Windows](https://github.com/Ascotbe/Kernelhub/tree/master/Windows)
+🖥：[Windows](https://github.com/Ascotbe/Kernelhub/tree/master/Windows)
 
-- [Linux](https://github.com/Ascotbe/Kernelhub/tree/master/Linux)（🚧Constructing
+🚧：[Linux](https://github.com/Ascotbe/Kernelhub/tree/master/Linux)（Constructing
 
 ### Disclaimer
 

@@ -21,14 +21,14 @@
 ### 在线预览
 
 ```
-http://kernelhub.ascotbe.com
+http://kernelhub.ascotbe.com（重写中
 ```
 
 ### 漏洞内容
 
-- [Windows](https://github.com/Ascotbe/Kernelhub/tree/master/Windows)
+🖥：[Windows](https://github.com/Ascotbe/Kernelhub/tree/master/Windows)
 
-- [Linux](https://github.com/Ascotbe/Kernelhub/tree/master/Linux)（🚧施工中
+🚧：[Linux](https://github.com/Ascotbe/Kernelhub/tree/master/Linux)（施工中
 
 ### 免责声明
 
