@@ -9,28 +9,36 @@
  </p>
 
 
-### Preface
+
+> Preface
 
 - The original intention of making the project is for, learning, analyzing, and research the latest kernel vulnerabilities are not needed to see the system and related content.
 - This project is a collection of proprietary, except for test failure or unspecified Exp, Demo GIF map
 - If there is an omission of the omission of CVE vulnerabilities, please join your issues and bring your use of code.
 - Project code is prohibited from testing in a real environment! The reliability of the code is self-verified, and the cause of the fault you have is not responsible.
 
-**[中文文档](./README.CN.md) | EnglishDocumentation**
+> Assist
 
-### Online preview
+In the project, the lack of ordinary order documentation, if English is good, friends welcome to submit PR
 
-```
-http://kernelhub.ascotbe.com（重写中
-```
+### Detail page
 
-### Vulnerability
+Click the following chart to jump
 
-🖥：[Windows](https://github.com/Ascotbe/Kernelhub/tree/master/Windows)
+ <p align="center">
+   <a href="http://kernelhub.ascotbe.com/Windows/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/Windows_icon.png" style="zoom:30%;" /></a>&nbsp; &nbsp; 
+   <a href="http://kernelhub.ascotbe.com/macOS/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/macos_icon.png" style="zoom:10%;" /></a>&nbsp; &nbsp; 
+   <a href="http://kernelhub.ascotbe.com/Linux/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/linux_icon.png" style="zoom:10%;" /></a> 
+</p>
 
-🚧：[Linux](https://github.com/Ascotbe/Kernelhub/tree/master/Linux)（Constructing
+### About the error
 
-🚧：[macOS](https://github.com/Ascotbe/Kernelhub/tree/master/macOS)（Constructing
+Due to the large content of the project, it is inevitable that there will be some typos or missing CVE numbers. If you find an error, you still hope to submit Issues to help me maintain the project.
+
+> No test success number
+
+The following numbers are all CVEs that failed to pass the recurrence test after screening, with reasons for failure, and welcome to submit PR
+
 
 ### Disclaimer
 
@@ -48,9 +56,4 @@ Before using this project, please **read carefully and fully understand the cont
 - [Exploits](https://github.com/WindowsExploits/Exploits)
 - [CVE](https://cve.mitre.org)
 - [CVE Details](https://www.cvedetails.com/)
-
-
-### Stats
-
-![Alt](https://repobeats.axiom.co/api/embed/2f17ae8019f36294dafafd5cf9ffe9b0e62a21ae.svg "Repobeats analytics image")
 

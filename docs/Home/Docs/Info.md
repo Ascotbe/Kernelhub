@@ -9,28 +9,32 @@
  </p>
 
 
-### 前言
+
+
+> 前言
 
 - 制作该项目的初衷是为了，学习、分析、研究最新的内核漏洞不在需要话大量时间去寻找系统以及相关内容
 - 本项目是一个提权相关的集合，除测试失败或者未测试的EXP都有详细说明以及演示GIF图
 - 如有本项目存在遗漏的CVE漏洞，欢迎提Issues并带上利用代码
 - 项目代码禁止在真实环境进行测试！代码的可靠性自行验证，您造成的过失项目作者概不负责
 
-**中文文档 | [EnglishDocumentation](./README.md)**
+> 协助
 
-### 在线预览
+项目中暂缺单个文档的英文翻译，如果英文好的小伙伴欢迎提交PR
 
-```
-http://kernelhub.ascotbe.com（重写中
-```
+### 详情页面
 
-### 漏洞内容
+点击下列图表进行跳转
 
-🖥：[Windows](https://github.com/Ascotbe/Kernelhub/tree/master/Windows)
+ <p align="center">
+   <a href="http://kernelhub.ascotbe.com/Windows/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/Windows_icon.png" style="zoom:30%;" /></a>&nbsp; &nbsp; 
+   <a href="http://kernelhub.ascotbe.com/macOS/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/macos_icon.png" style="zoom:10%;" /></a>&nbsp; &nbsp; 
+   <a href="http://kernelhub.ascotbe.com/Linux/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/linux_icon.png" style="zoom:10%;" /></a> 
+</p>
 
-🚧：[Linux](https://github.com/Ascotbe/Kernelhub/tree/master/Linux)（施工中
+### 关于错误
 
-🚧：[macOS](https://github.com/Ascotbe/Kernelhub/tree/master/macOS)（施工中
+由于项目内容较多，难免有些错别字或者遗漏的CVE编号等问题，如果您发现了错误，还望提交Issues来帮助我维护该项目。
 
 ### 免责声明
 
@@ -49,6 +53,3 @@ http://kernelhub.ascotbe.com（重写中
 - [CVE](https://cve.mitre.org)
 - [CVE Details](https://www.cvedetails.com/)
 
-### Stats
-
-![Alt](https://repobeats.axiom.co/api/embed/2f17ae8019f36294dafafd5cf9ffe9b0e62a21ae.svg "Repobeats analytics image")

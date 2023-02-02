@@ -1,7 +1,7 @@
 let config = {
-    title: 'Kernelhub',
+    title: 'Windows',
     home: 'Info.md',
-    repo: 'Ascotbe/Kernelhub',
+    repo: 'Ascotbe/Kernelhub/Windows',
     nav: [
         {
             title: 'Introduction', path: '/'

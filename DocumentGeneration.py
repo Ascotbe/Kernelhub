@@ -7,13 +7,13 @@ window_success_list=[]
 window_failure_list=[]
 def WindowsConfig():
     #中文配置的开头
-    chinese_begin="""let config = {\n    title: 'Kernelhub',\n    home: 'Info.md',\n    repo: 'Ascotbe/Kernelhub',\n    nav: [\n        {\n            title: '简介', path: '/'\n        },\n        {\n            title: '目录导航',type: 'dropdown', items: [\n                {\n                    title: "有利用脚本(测试成功)",path: '/TestSuccess'\n                },"""
+    chinese_begin="""let config = {\n    title: 'Windows',\n    home: 'Info.md',\n    repo: 'Ascotbe/Kernelhub/Windows',\n    nav: [\n        {\n            title: '简介', path: '/'\n        },\n        {\n            title: '目录导航',type: 'dropdown', items: [\n                {\n                    title: "有利用脚本(测试成功)",path: '/TestSuccess'\n                },"""
     #所有配置的结尾
     config_end="""\n            ]\n        },\n    ],\n    tocVisibleDepth: 10,\n    plugins: []\n};"""
     #下表是黑名单，垃圾文件
     reject_list=['.DS_Store', '.git','.idea', '.gitignore','LICENSE', 'Patch', 'README.CN.md', 'README.md', 'TestFailure', 'docs', 'DocumentGeneration.py','StencilPlate']
     #英文配置的开头
-    english_begin="""let config = {\n    title: 'Kernelhub',\n    home: 'Info.md',\n    repo: 'Ascotbe/Kernelhub',\n    nav: [\n        {\n            title: 'Introduction', path: '/'\n        },\n        {\n            title: 'DirectoryNavigation',type: 'dropdown', items: [\n                {\n                    title: "exploit script (successful test)",path: '/TestSuccess'\n                },"""
+    english_begin="""let config = {\n    title: 'Windows',\n    home: 'Info.md',\n    repo: 'Ascotbe/Kernelhub/Windows',\n    nav: [\n        {\n            title: 'Introduction', path: '/'\n        },\n        {\n            title: 'DirectoryNavigation',type: 'dropdown', items: [\n                {\n                    title: "exploit script (successful test)",path: '/TestSuccess'\n                },"""
     #处理成功的编号
     for i in os.listdir(Path+"/Windows"):
         if i not in reject_list:
