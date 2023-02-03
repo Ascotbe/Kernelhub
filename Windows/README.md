@@ -2,7 +2,7 @@
 ### Online preview
 
 ```
-http://kernelhub.ascotbe.com/Windows
+http://kernelhub.ascotbe.com/Windows/Docs/
 ```
 
 **[中文文档](./README.CN.md) | EnglishDocumentation**

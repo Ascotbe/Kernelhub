@@ -24,12 +24,12 @@
 
 ### 详情页面
 
-点击下列图表进行跳转
+点击下列图标进行跳转
 
- <p align="center">
-   <a href="http://kernelhub.ascotbe.com/Windows/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/Windows_icon.png" style="zoom:30%;" /></a>&nbsp; &nbsp; 
+ <p >
+   <a href="http://kernelhub.ascotbe.com/Windows/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/Windows_icon.png" style="zoom:34%;" /></a>&nbsp; &nbsp; 
    <a href="http://kernelhub.ascotbe.com/macOS/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/macos_icon.png" style="zoom:10%;" /></a>&nbsp; &nbsp; 
-   <a href="http://kernelhub.ascotbe.com/Linux/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/linux_icon.png" style="zoom:10%;" /></a> 
+   <a href="http://kernelhub.ascotbe.com/Linux/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/linux_icon.png" style="zoom:13%;" /></a> 
 </p>
 
 ### 关于错误

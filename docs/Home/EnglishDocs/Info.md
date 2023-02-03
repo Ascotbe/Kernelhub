@@ -25,10 +25,10 @@ In the project, the lack of ordinary order documentation, if English is good, fr
 
 Click the following chart to jump
 
- <p align="center">
-   <a href="http://kernelhub.ascotbe.com/Windows/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/Windows_icon.png" style="zoom:30%;" /></a>&nbsp; &nbsp; 
+ <p >
+   <a href="http://kernelhub.ascotbe.com/Windows/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/Windows_icon.png" style="zoom:34%;" /></a>&nbsp; &nbsp; 
    <a href="http://kernelhub.ascotbe.com/macOS/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/macos_icon.png" style="zoom:10%;" /></a>&nbsp; &nbsp; 
-   <a href="http://kernelhub.ascotbe.com/Linux/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/linux_icon.png" style="zoom:10%;" /></a> 
+   <a href="http://kernelhub.ascotbe.com/Linux/Docs/"><img src="https://raw.githubusercontent.com/Ascotbe/Image/master/Kernelhub/linux_icon.png" style="zoom:13%;" /></a> 
 </p>
 
 ### About the error

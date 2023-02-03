@@ -1,7 +1,7 @@
 ### 在线预览
 
 ```
-http://kernelhub.ascotbe.com/Windows
+http://kernelhub.ascotbe.com/Windows/Docs/
 ```
 
 **中文文档 | [EnglishDocumentation](./README.md)**
